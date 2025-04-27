@@ -80,6 +80,13 @@ const ProjectsSection = () => {
                 </button>
               </div>
             </div>
+            
+            <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow mt-8">
+              <h2 className="text-3xl font-bold mb-4">Project 2: Advanced Metadata Extraction Tool</h2>
+              <p className="text-lg mb-4">
+                I developed an advanced metadata extraction tool capable of retrieving detailed metadata from various file types including documents, images, PDFs, audio, and more. The tool supports deep inspection and analysis, making it useful for digital forensics, red teaming, and OSINT investigations.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
