@@ -83,9 +83,42 @@ const ProjectsSection = () => {
             
             <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow mt-8">
               <h2 className="text-3xl font-bold mb-4">Project 2: Advanced Metadata Extraction Tool</h2>
-              <p className="text-lg mb-4">
-                I developed an advanced metadata extraction tool capable of retrieving detailed metadata from various file types including documents, images, PDFs, audio, and more. The tool supports deep inspection and analysis, making it useful for digital forensics, red teaming, and OSINT investigations.
-              </p>
+              {expanded ? (
+                <>
+                  <p className="text-lg mb-4">
+                    I developed an advanced metadata extraction tool capable of retrieving detailed metadata from various file types including documents, images, PDFs, audio, and more. The tool supports deep inspection and analysis, making it useful for digital forensics, red teaming, and OSINT investigations.
+                  </p>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-lg">Key Features:</p>
+                    <ul className="list-none space-y-2">
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        Multi-format support (Documents, Images, PDFs, Audio)
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        Deep metadata inspection and analysis
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        Digital forensics and OSINT capabilities
+                      </li>
+                    </ul>
+                  </div>
+                </>
+              ) : (
+                <p className="text-lg mb-4">
+                  An advanced tool for extracting and analyzing metadata from various file types...
+                </p>
+              )}
+              <div className="flex justify-end mt-4">
+                <button 
+                  className="text-primary hover:underline"
+                  onClick={() => setExpanded(!expanded)}
+                >
+                  {expanded ? "Show less ←" : "Read more →"}
+                </button>
+              </div>
             </div>
           </div>
         </motion.div>
