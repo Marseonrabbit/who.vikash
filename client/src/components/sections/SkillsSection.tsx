@@ -3,7 +3,8 @@ import { Progress } from "@/components/ui/progress";
 import Navigation from "@/components/Navigation";
 import SkillsIcon from "@/components/icons/SkillsIcon";
 import { fadeInUp, staggerContainer, staggerItems } from "@/lib/animation";
-import { Camera, Layers, ShoppingBag, User } from "lucide-react";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { useState } from "react";
 
 const technicalSkills = [
   { name: "Photography Composition", percentage: 95 },
@@ -13,30 +14,38 @@ const technicalSkills = [
   { name: "Studio Equipment", percentage: 75 }
 ];
 
-const specialtySkills = [
-  { 
-    name: "Food Photography", 
-    description: "Culinary shoots, restaurant menus, food styling.",
-    icon: <Layers className="w-10 h-10 mb-4 text-primary" />
-  },
-  { 
-    name: "Landscape", 
-    description: "Natural vistas, cityscapes, environmental.",
-    icon: <Camera className="w-10 h-10 mb-4 text-primary" />
-  },
-  { 
-    name: "Portraiture", 
-    description: "Headshots, lifestyle, environmental portraits.",
-    icon: <User className="w-10 h-10 mb-4 text-primary" />
-  },
-  { 
-    name: "Commercial", 
-    description: "Product photography, branding, e-commerce.",
-    icon: <ShoppingBag className="w-10 h-10 mb-4 text-primary" />
-  }
+// Skills for radar chart
+const skillsData = [
+  { subject: 'Composition', A: 95, fullMark: 100 },
+  { subject: 'Lighting', A: 90, fullMark: 100 },
+  { subject: 'Creativity', A: 85, fullMark: 100 },
+  { subject: 'Technical', A: 80, fullMark: 100 },
+  { subject: 'Post-Processing', A: 85, fullMark: 100 },
+  { subject: 'Client Relations', A: 88, fullMark: 100 },
+  { subject: 'Adaptability', A: 92, fullMark: 100 },
+  { subject: 'Attention to Detail', A: 93, fullMark: 100 },
 ];
 
 const SkillsSection = () => {
+  // State to manage updated skill data
+  const [radarData, setRadarData] = useState(skillsData);
+
+  // Function to update skills - this can be triggered when new skills are added or modified
+  const updateSkillData = (newSkill: { subject: string; A: number; fullMark: number }) => {
+    // Check if skill already exists
+    const existingIndex = radarData.findIndex(item => item.subject === newSkill.subject);
+    
+    if (existingIndex >= 0) {
+      // Update existing skill
+      const updatedData = [...radarData];
+      updatedData[existingIndex] = newSkill;
+      setRadarData(updatedData);
+    } else {
+      // Add new skill
+      setRadarData([...radarData, newSkill]);
+    }
+  };
+
   return (
     <motion.section
       className="min-h-screen container mx-auto py-10 md:py-16 flex flex-col justify-center"
@@ -74,26 +83,49 @@ const SkillsSection = () => {
             </motion.div>
           </motion.div>
           
-          {/* Photography Specialties */}
+          {/* Skills Radar Chart */}
           <motion.div variants={fadeInUp}>
-            <h2 className="text-2xl font-semibold mb-6 text-primary">Photography Specialties</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-primary">Skills Overview</h2>
             
-            <motion.div 
-              className="grid grid-cols-2 gap-4"
-              variants={staggerItems}
+            <motion.div
+              className="w-full h-[400px] bg-card p-6 rounded-lg relative overflow-hidden"
+              variants={fadeInUp}
+              style={{ background: 'linear-gradient(180deg, #0a1629 0%, #112240 100%)' }}
             >
-              {specialtySkills.map((specialty, index) => (
-                <motion.div 
-                  key={specialty.name} 
-                  className="p-5 bg-card rounded-lg transition-transform duration-300 hover:-translate-y-1"
-                  variants={fadeInUp}
-                  custom={index}
-                >
-                  {specialty.icon}
-                  <h3 className="text-lg font-medium mb-2">{specialty.name}</h3>
-                  <p className="text-muted-foreground text-sm">{specialty.description}</p>
-                </motion.div>
-              ))}
+              <div className="absolute top-0 left-0 w-full text-center py-2 text-sm text-gray-300">
+                PHOTOGRAPHY SKILLS OVERVIEW
+              </div>
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
+                  <PolarGrid stroke="rgba(255, 255, 255, 0.3)" />
+                  <PolarAngleAxis 
+                    dataKey="subject" 
+                    tick={{ fill: '#fff', fontSize: 12 }} 
+                    stroke="rgba(255, 255, 255, 0.5)"
+                  />
+                  <PolarRadiusAxis 
+                    angle={30} 
+                    domain={[0, 100]} 
+                    tick={{ fill: '#fff' }} 
+                    stroke="rgba(255, 255, 255, 0.3)"
+                    axisLine={false}
+                  />
+                  <Radar
+                    name="Skills"
+                    dataKey="A"
+                    stroke="#4d86ff"
+                    fill="#4d86ff"
+                    fillOpacity={0.6}
+                  />
+                  <Radar
+                    name="Baseline"
+                    dataKey="fullMark"
+                    stroke="rgba(255, 255, 255, 0.1)"
+                    fill="none"
+                    strokeWidth={1}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
             </motion.div>
           </motion.div>
         </div>
