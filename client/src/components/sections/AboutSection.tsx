@@ -8,6 +8,9 @@ import {
 import Navigation from "@/components/Navigation";
 import { fadeInUp, staggerContainer, slideInFromLeft } from "@/lib/animation";
 
+// Import profile image from assets
+import profileImage from "@assets/3.png";
+
 const AboutSection = () => {
   return (
     <motion.section
@@ -22,7 +25,7 @@ const AboutSection = () => {
           variants={slideInFromLeft}
         >
           <img 
-            src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+            src={profileImage}
             alt="Profile" 
             className="w-full h-full object-cover"
           />
