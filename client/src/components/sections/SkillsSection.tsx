@@ -81,7 +81,7 @@ const SkillsSection = () => {
                   <PolarGrid stroke="rgba(255, 255, 255, 0.3)" />
                   <PolarAngleAxis 
                     dataKey="subject" 
-                    tick={{ fill: '#fff', fontSize: 12 }} 
+                    tick={{ fill: '#fff', fontSize: 12, cursor: 'pointer' }} 
                     stroke="rgba(255, 255, 255, 0.5)"
                   />
                   <PolarRadiusAxis 
@@ -97,6 +97,22 @@ const SkillsSection = () => {
                     stroke="#4d86ff"
                     fill="#4d86ff"
                     fillOpacity={0.6}
+                    onClick={(data) => {
+                      alert(`${data.subject}: ${data.A}%`);
+                    }}
+                  />
+                  <Tooltip
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        return (
+                          <div className="bg-card p-2 rounded-lg border border-border">
+                            <p className="text-sm font-medium">{payload[0].payload.subject}</p>
+                            <p className="text-primary text-lg">{`${payload[0].value}%`}</p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    }}
                   />
                 </RadarChart>
               </ResponsiveContainer>
