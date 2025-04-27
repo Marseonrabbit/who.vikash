@@ -44,7 +44,7 @@ const AboutSection = () => {
             variants={fadeInUp}
           >
             <p className="text-lg mb-6">
-              Hi, I'm Vikash — part of HighSchool Hackers and currently working as a Cyber Security Operations Engineer at SafeAeon. I'm just a tech enthusiast who loves building interesting things, driven by an endless curiosity to learn everything I can. I live by the mindset: 'When you see a good move, look for a better one.'
+              Hi, I'm Vikash - part of HighSchool Hackers and currently working as a Cyber Security Operations Engineer at SafeAeon. I'm a passionate techie who loves to build and break things — always experimenting, always exploring. I'm driven by an endless curiosity to learn everything I can, and I live by the mindset: 'When you see a good move, look for a better one.'
             </p>
             
             <div className="flex gap-6 mt-8">
