@@ -28,7 +28,7 @@ const ProjectsSection = () => {
         >
           <div className="space-y-8">
             <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-2xl font-bold mb-4">SR2000 – Multi-IP & Hash Analysis Tool</h3>
+              <h2 className="text-3xl font-bold mb-4">Project 1: SR2000 – Multi-IP & Hash Analysis Tool</h2>
               {expanded ? (
                 <>
                   <p className="text-lg mb-4">
