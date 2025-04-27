@@ -174,11 +174,11 @@ const ProjectsSection = () => {
             </div>
 
             <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow mt-8">
-              <h2 className="text-3xl font-bold mb-4">Project 4: Developed an Android RAT Using a Free Music Streaming App</h2>
+              <h2 className="text-3xl font-bold mb-4">Project 4: Developed an Android RAT (Remote Access Trojan) Using a Free Music Streaming App</h2>
               {expanded ? (
                 <>
                   <p className="text-lg mb-4">
-                    In this project, I explored the security vulnerabilities in Android applications by modifying a free music streaming app to inject malicious code, gaining access to the device's camera, microphone, location, and keystrokes. After open sourcing the code, I deleted it to prevent malicious use.
+                    In this project, I explored the security vulnerabilities in Android applications by modifying a free music streaming app to inject malicious code, gaining access to the device's camera, microphone, location, and keystrokes. after open sourced the code i deleted it so no one can use it for malicious intent.
                   </p>
                   <div className="space-y-2 mb-4">
                     <p className="text-lg">Key Findings:</p>
