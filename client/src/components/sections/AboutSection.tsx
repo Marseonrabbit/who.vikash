@@ -18,7 +18,7 @@ const AboutSection = () => {
     >
       <div className="about-container flex flex-col md:flex-row items-center md:items-start gap-10 w-full max-w-6xl mx-auto px-4 md:px-6">
         <motion.div 
-          className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-primary flex-shrink-0"
+          className="w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-primary flex-shrink-0"
           variants={slideInFromLeft}
         >
           <img 

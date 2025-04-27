@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Badge,
-} from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import ExperienceIcon from "@/components/icons/ExperienceIcon";
 import { fadeInUp, staggerContainer, staggerItems } from "@/lib/animation";
@@ -34,50 +31,55 @@ const experiences = [
 const ExperienceSection = () => {
   return (
     <motion.section
-      className="min-h-screen container mx-auto px-4 md:px-6 py-16"
+      className="min-h-screen container mx-auto py-10 md:py-16 flex flex-col justify-center"
       variants={staggerContainer}
       initial="hidden"
       animate="show"
     >
-      <motion.div 
-        className="flex items-center mb-12"
-        variants={fadeInUp}
-      >
-        <ExperienceIcon className="w-8 h-8 mr-3 text-primary" />
-        <h1 className="text-3xl md:text-4xl font-bold">EXPERIENCE</h1>
-      </motion.div>
-      
-      <motion.div 
-        className="space-y-12 w-full max-w-6xl mx-auto"
-        variants={staggerItems}
-      >
-        {experiences.map((experience, index) => (
-          <motion.div
-            key={experience.id}
-            className="relative pl-8 border-l-2 border-primary"
-            variants={fadeInUp}
-            custom={index}
-          >
-            <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary"></div>
-            <div className="mb-8">
-              <div className="flex flex-wrap justify-between items-center mb-2">
-                <h3 className="text-xl font-semibold">{experience.title}</h3>
-                <span className="text-primary text-sm">{experience.period}</span>
+      <div className="w-full max-w-6xl mx-auto px-4 md:px-6">
+        <motion.div 
+          className="flex items-center mb-8"
+          variants={fadeInUp}
+        >
+          <ExperienceIcon className="w-8 h-8 mr-3 text-primary" />
+          <h1 className="text-3xl md:text-4xl font-bold">EXPERIENCE</h1>
+        </motion.div>
+        
+        <motion.div 
+          className="space-y-8 w-full"
+          variants={staggerItems}
+        >
+          {experiences.map((experience, index) => (
+            <motion.div
+              key={experience.id}
+              className="relative pl-8 border-l-2 border-primary"
+              variants={fadeInUp}
+              custom={index}
+            >
+              <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-primary"></div>
+              <div className="mb-8">
+                <div className="flex flex-wrap justify-between items-center mb-2">
+                  <h3 className="text-xl font-semibold">{experience.title}</h3>
+                  <span className="text-primary text-sm">{experience.period}</span>
+                </div>
+                <p className="text-muted-foreground mb-4">{experience.description}</p>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {experience.skills.map(skill => (
+                    <Badge key={skill} variant="outline" className="px-3 py-1 rounded-full bg-primary/20 text-primary text-sm">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="flex justify-end">
+                  <a href="#" className="text-foreground hover:text-primary transition-colors">Read More →</a>
+                </div>
               </div>
-              <p className="text-muted-foreground mb-4">{experience.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {experience.skills.map(skill => (
-                  <Badge key={skill} variant="outline" className="px-3 py-1 rounded-full bg-primary/20 text-primary text-sm">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
-      
-      <Navigation currentSection="experience" />
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        <Navigation currentSection="experience" />
+      </div>
     </motion.section>
   );
 };

@@ -56,9 +56,9 @@ const BooksSection = () => {
             </div>
           ))}
         </motion.div>
+        
+        <Navigation currentSection="books" />
       </div>
-      
-      <Navigation currentSection="books" />
     </motion.section>
   );
 };

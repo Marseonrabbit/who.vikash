@@ -3,18 +3,18 @@ import { Button } from "@/components/ui/button";
 import { useSectionStore } from "@/hooks/use-section";
 
 interface NavigationProps {
-  currentSection: string;
+  currentSection: 'about' | 'projects' | 'experience' | 'skills' | 'books';
 }
 
 const Navigation = ({ currentSection }: NavigationProps) => {
   const { setActiveSection } = useSectionStore();
 
   const sections = [
-    { id: "about", label: "About Me" },
-    { id: "projects", label: "Projects" },
-    { id: "experience", label: "Experience" },
-    { id: "skills", label: "Skills" },
-    { id: "books", label: "Books" },
+    { id: "about" as const, label: "About Me" },
+    { id: "projects" as const, label: "Projects" },
+    { id: "experience" as const, label: "Experience" },
+    { id: "skills" as const, label: "Skills" },
+    { id: "books" as const, label: "Books" },
   ];
 
   // Filter out the current section
@@ -24,7 +24,7 @@ const Navigation = ({ currentSection }: NavigationProps) => {
     <>
       <div className="section-separator mt-8"></div>
       <motion.div 
-        className="flex flex-wrap justify-center gap-4 mt-4 mb-4"
+        className="flex flex-wrap justify-center gap-8 mt-4 mb-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.6 }}
