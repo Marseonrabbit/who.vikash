@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import SkillsIcon from "@/components/icons/SkillsIcon";
 import { fadeInUp, staggerContainer, staggerItems } from "@/lib/animation";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const technicalSkills = [
   { name: "Photography Composition", percentage: 95 },
@@ -14,37 +14,18 @@ const technicalSkills = [
   { name: "Studio Equipment", percentage: 75 }
 ];
 
-// Skills for radar chart
-const skillsData = [
-  { subject: 'Composition', A: 95, fullMark: 100 },
-  { subject: 'Lighting', A: 90, fullMark: 100 },
-  { subject: 'Creativity', A: 85, fullMark: 100 },
-  { subject: 'Technical', A: 80, fullMark: 100 },
-  { subject: 'Post-Processing', A: 85, fullMark: 100 },
-  { subject: 'Client Relations', A: 88, fullMark: 100 },
-  { subject: 'Adaptability', A: 92, fullMark: 100 },
-  { subject: 'Attention to Detail', A: 93, fullMark: 100 },
-];
-
 const SkillsSection = () => {
-  // State to manage updated skill data
-  const [radarData, setRadarData] = useState(skillsData);
+  const [radarData, setRadarData] = useState([]);
 
-  // Function to update skills - this can be triggered when new skills are added or modified
-  const updateSkillData = (newSkill: { subject: string; A: number; fullMark: number }) => {
-    // Check if skill already exists
-    const existingIndex = radarData.findIndex(item => item.subject === newSkill.subject);
-    
-    if (existingIndex >= 0) {
-      // Update existing skill
-      const updatedData = [...radarData];
-      updatedData[existingIndex] = newSkill;
-      setRadarData(updatedData);
-    } else {
-      // Add new skill
-      setRadarData([...radarData, newSkill]);
-    }
-  };
+  useEffect(() => {
+    // Transform technical skills into radar chart format
+    const transformedData = technicalSkills.map(skill => ({
+      subject: skill.name,
+      A: skill.percentage,
+      fullMark: 100
+    }));
+    setRadarData(transformedData);
+  }, []);
 
   return (
     <motion.section
@@ -61,12 +42,12 @@ const SkillsSection = () => {
           <SkillsIcon className="w-8 h-8 mr-3 text-primary" />
           <h1 className="text-3xl md:text-4xl font-bold">SKILLS</h1>
         </motion.div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
           {/* Technical Skills */}
           <motion.div variants={fadeInUp}>
             <h2 className="text-2xl font-semibold mb-6 text-primary">Technical Skills</h2>
-            
+
             <motion.div 
               className="space-y-6"
               variants={staggerItems}
@@ -82,11 +63,11 @@ const SkillsSection = () => {
               ))}
             </motion.div>
           </motion.div>
-          
+
           {/* Skills Radar Chart */}
           <motion.div variants={fadeInUp}>
             <h2 className="text-2xl font-semibold mb-6 text-primary">Skills Overview</h2>
-            
+
             <motion.div
               className="w-full h-[400px] bg-card p-6 rounded-lg relative overflow-hidden"
               variants={fadeInUp}
@@ -117,19 +98,12 @@ const SkillsSection = () => {
                     fill="#4d86ff"
                     fillOpacity={0.6}
                   />
-                  <Radar
-                    name="Baseline"
-                    dataKey="fullMark"
-                    stroke="rgba(255, 255, 255, 0.1)"
-                    fill="none"
-                    strokeWidth={1}
-                  />
                 </RadarChart>
               </ResponsiveContainer>
             </motion.div>
           </motion.div>
         </div>
-        
+
         <Navigation currentSection="skills" />
       </div>
     </motion.section>
