@@ -10,27 +10,41 @@ interface IntroAnimationProps {
 }
 
 const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
-  const [typedText, setTypedText] = useState("");
+  const [prefix, setPrefix] = useState("");
+  const [command, setCommand] = useState("");
   const typingTextRef = useRef<HTMLSpanElement>(null);
   
   useEffect(() => {
     // First show the dragon image
-    const timer = setTimeout(() => {
-      // Then start typing the command
-      const text = "kali@Rabbit:~ whoami";
-      const cleanup = typingEffect(text, (currentText) => {
-        setTypedText(currentText);
+    const timer1 = setTimeout(() => {
+      // First type the prompt prefix
+      const prefixText = "kali@Rabbit:~ ";
+      const prefixCleanup = typingEffect(prefixText, (currentText) => {
+        setPrefix(currentText);
       }, 100);
-
-      // After typing is done, wait and then transition to main content
-      setTimeout(() => {
-        onComplete();
-      }, 2000);
-
-      return cleanup;
+      
+      // After prefix is done, start typing the whoami command
+      const timer2 = setTimeout(() => {
+        const commandText = "whoami";
+        const commandCleanup = typingEffect(commandText, (currentText) => {
+          setCommand(currentText);
+        }, 150);
+        
+        // After typing is done, wait and then transition to main content
+        setTimeout(() => {
+          onComplete();
+        }, 2500);
+        
+        return commandCleanup;
+      }, prefixText.length * 100 + 300); // Wait for prefix typing to complete + small pause
+      
+      return () => {
+        prefixCleanup();
+        clearTimeout(timer2);
+      };
     }, 2000);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer1);
   }, [onComplete]);
 
   return (
@@ -55,12 +69,13 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       
       {/* Terminal Text */}
       <motion.div
-        className="terminal-text text-lg md:text-xl mt-4"
+        className="terminal-text text-lg md:text-xl mt-4 font-mono"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.5 }}
       >
-        <span ref={typingTextRef}>{typedText}</span>
+        <span className="text-primary">{prefix}</span>
+        <span ref={typingTextRef}>{command}</span>
         <span className="terminal-cursor"></span>
       </motion.div>
     </motion.div>
