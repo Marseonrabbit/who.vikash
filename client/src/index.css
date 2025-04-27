@@ -5,13 +5,13 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 7%;
+  --background: 0 0% 3%;
   --foreground: 0 0% 100%;
   --muted: 240 3.7% 15.9%;
   --muted-foreground: 0 0% 66.7%;
   --popover: 240 10% 3.9%;
   --popover-foreground: 0 0% 98%;
-  --card: 240 10% 12%;
+  --card: 240 10% 8%;
   --card-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
@@ -41,14 +41,14 @@
 
 .terminal-text {
   font-family: 'Fira Code', monospace;
-  color: hsl(var(--terminal-green));
+  color: white;
 }
 
 .terminal-cursor {
   display: inline-block;
   width: 10px;
   height: 18px;
-  background-color: hsl(var(--terminal-green));
+  background-color: white;
   animation: blink 1s step-end infinite;
 }
 
@@ -59,10 +59,14 @@
 
 .nav-button {
   transition: transform 0.2s ease, background-color 0.2s ease;
+  border: 1px solid #666;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
 }
 
 .nav-button:hover {
   transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .social-link {
@@ -72,4 +76,31 @@
 .social-link:hover {
   transform: translateY(-3px);
   color: hsl(var(--primary));
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .section-heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Set horizontal separator line */
+.section-separator {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  margin: 1rem 0;
 }

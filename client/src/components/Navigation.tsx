@@ -21,23 +21,26 @@ const Navigation = ({ currentSection }: NavigationProps) => {
   const filteredSections = sections.filter(section => section.id !== currentSection);
 
   return (
-    <motion.div 
-      className="flex flex-wrap justify-center gap-4 mt-16"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.5, duration: 0.6 }}
-    >
-      {filteredSections.map((section) => (
-        <Button
-          key={section.id}
-          variant="outline"
-          className="nav-button px-8 py-3 rounded-full bg-card hover:bg-primary/10 text-foreground transition-all duration-300"
-          onClick={() => setActiveSection(section.id)}
-        >
-          {section.label}
-        </Button>
-      ))}
-    </motion.div>
+    <>
+      <div className="section-separator mt-8"></div>
+      <motion.div 
+        className="flex flex-wrap justify-center gap-4 mt-4 mb-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
+      >
+        {filteredSections.map((section) => (
+          <Button
+            key={section.id}
+            variant="ghost"
+            className="nav-button px-8 py-2 text-foreground transition-all duration-300"
+            onClick={() => setActiveSection(section.id)}
+          >
+            {section.label}
+          </Button>
+        ))}
+      </motion.div>
+    </>
   );
 };
 

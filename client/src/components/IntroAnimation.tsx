@@ -12,7 +12,9 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   const typingTextRef = useRef<HTMLSpanElement>(null);
   
   useEffect(() => {
+    // First show the dragon icon
     const timer = setTimeout(() => {
+      // Then start typing the command
       const text = "kali@Rabbit:~ whoami";
       const cleanup = typingEffect(text, (currentText) => {
         setTypedText(currentText);
@@ -21,7 +23,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       // After typing is done, wait and then transition to main content
       setTimeout(() => {
         onComplete();
-      }, 2500);
+      }, 2000);
 
       return cleanup;
     }, 2000);
@@ -35,8 +37,9 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.8 } }}
     >
+      {/* Dragon Icon */}
       <motion.div
-        className="w-48 h-48 mb-8"
+        className="w-48 h-48 mb-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
@@ -44,6 +47,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         <DragonIcon className="w-full h-full text-primary" />
       </motion.div>
       
+      {/* Terminal Text */}
       <motion.div
         className="terminal-text text-lg md:text-xl mt-4"
         initial={{ opacity: 0 }}
