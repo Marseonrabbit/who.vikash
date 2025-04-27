@@ -3,7 +3,7 @@ import { Progress } from "@/components/ui/progress";
 import Navigation from "@/components/Navigation";
 import SkillsIcon from "@/components/icons/SkillsIcon";
 import { fadeInUp, staggerContainer, staggerItems } from "@/lib/animation";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Tooltip } from 'recharts';
 import { useState, useEffect } from "react";
 
 const technicalSkills = [
