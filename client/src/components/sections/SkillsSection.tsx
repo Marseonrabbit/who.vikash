@@ -16,6 +16,19 @@ const technicalSkills = [
 
 const SkillsSection = () => {
   const [radarData, setRadarData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    // Transform technical skills into radar chart format
+    const transformedData = technicalSkills.map(skill => ({
+      subject: skill.name,
+      A: skill.percentage,
+      fullMark: 100
+    }));
+    setRadarData(transformedData);
+    setIsLoading(false);
+  }, []);
 
   useEffect(() => {
     // Transform technical skills into radar chart format
