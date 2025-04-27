@@ -19,15 +19,15 @@ const AboutSection = () => {
       initial="hidden"
       animate="show"
     >
-      <div className="about-container flex flex-col md:flex-row items-center justify-center gap-10 w-full max-w-6xl mx-auto px-4 md:px-6">
+      <div className="about-container flex flex-col md:flex-row items-center gap-10 w-full max-w-6xl mx-auto px-4 md:px-6">
         <motion.div 
-          className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-primary flex-shrink-0 mx-auto"
+          className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-primary flex-shrink-0 mx-auto md:mx-0"
           variants={slideInFromLeft}
         >
           <img 
             src={profileImage}
             alt="Profile" 
-            className="w-full h-full object-cover object-center transform scale-110"
+            className="w-full h-full object-cover object-center"
           />
         </motion.div>
         
