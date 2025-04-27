@@ -50,7 +50,7 @@ const AboutSection = () => {
             <div className="flex gap-6 mt-8">
               {/* Social Links */}
               <motion.a 
-                href="https://github.com/" 
+                href="https://github.com/Marseonrabbit" 
                 className="social-link text-white hover:text-primary"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -60,7 +60,7 @@ const AboutSection = () => {
                 <Github className="w-8 h-8" />
               </motion.a>
               <motion.a 
-                href="https://instagram.com/" 
+                href="https://www.instagram.com/vikashpoonia911?igsh=bzVlYzJ6OTI0ZDBo" 
                 className="social-link text-white hover:text-primary"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -70,7 +70,7 @@ const AboutSection = () => {
                 <Instagram className="w-8 h-8" />
               </motion.a>
               <motion.a 
-                href="mailto:contact@example.com" 
+                href="mailto:vikashpoonia91165@gmail.com" 
                 className="social-link text-white hover:text-primary"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2 }}
@@ -78,7 +78,7 @@ const AboutSection = () => {
                 <Mail className="w-8 h-8" />
               </motion.a>
               <motion.a 
-                href="tel:+1234567890" 
+                href="tel:+919351988380" 
                 className="social-link text-white hover:text-primary"
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.2 }}
