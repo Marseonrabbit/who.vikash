@@ -178,28 +178,14 @@ const ProjectsSection = () => {
               {expanded ? (
                 <>
                   <p className="text-lg mb-4">
+                    <strong>Objective:</strong>
+                  </p>
+                  <p className="text-lg mb-4">
                     In this project, I explored the security vulnerabilities in Android applications by modifying a free music streaming app to inject malicious code, gaining access to the device's camera, microphone, location, and keystrokes. after open sourced the code i deleted it so no one can use it for malicious intent.
                   </p>
-                  <div className="space-y-2 mb-4">
-                    <p className="text-lg">Key Findings:</p>
-                    <ul className="list-none space-y-2">
-                      <li className="flex items-center">
-                        <span className="text-primary mr-2">⚠️</span>
-                        Successfully demonstrated how seemingly harmless apps could be modified for malicious purposes
-                      </li>
-                      <li className="flex items-center">
-                        <span className="text-primary mr-2">🔹</span>
-                        Gained insights into Android app security vulnerabilities
-                      </li>
-                      <li className="flex items-center">
-                        <span className="text-primary mr-2">🔹</span>
-                        Highlighted the importance of thorough app security testing
-                      </li>
-                    </ul>
-                  </div>
                   <div className="bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-lg mb-4">
                     <p className="text-sm">
-                      <strong>Warning:</strong> This project was aimed at highlighting the importance of app security and the potential risks of malicious software. I strongly discourage any malicious use of the code and believe that the insights gained should only be used for improving security and protecting users.
+                      <strong>warning:</strong> This project was aimed at highlighting the importance of app security and the potential risks of malicious software. I strongly discourage any malicious use of the code and believe that the insights gained should only be used for improving security and protecting users.
                     </p>
                   </div>
                 </>
