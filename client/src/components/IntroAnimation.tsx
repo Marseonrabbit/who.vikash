@@ -69,7 +69,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       <AnimatePresence>
         {showDragon && (
           <motion.div
-            className="w-[400px] h-[400px] flex items-center justify-center"
+            className="fixed inset-0 flex items-center justify-center z-10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.2 }}
@@ -78,7 +78,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             <img 
               src={dragontLogo} 
               alt="Dragon Logo" 
-              className="max-w-full max-h-full object-contain" 
+              className="w-screen h-screen object-contain max-w-none" 
             />
           </motion.div>
         )}
@@ -87,7 +87,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       {/* Terminal Text */}
       {showTerminal && (
         <motion.div
-          className="terminal-text text-xl md:text-2xl font-mono"
+          className="terminal-text text-xl md:text-3xl font-mono z-20 relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
