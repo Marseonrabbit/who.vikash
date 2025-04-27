@@ -28,7 +28,10 @@ const ProjectsSection = () => {
             <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-2xl font-bold mb-4">SR2000 – Multi-IP & Hash Analysis Tool</h3>
               <p className="text-lg mb-4">
-                While working on a different task, I realized the need for a tool that could handle multiple IP analyses simultaneously — so I created SR2000. I developed the entire backend myself, and the tool is now live and actively used by others in the community.
+                While working with our SOC team, we ran into a recurring issue analyzing multiple IP addresses one at a time was inefficient and time-consuming. To solve this, I created SR2000, a custom tool that enables bulk IP analysis, streamlining the workflow for security teams.
+              </p>
+              <p className="text-lg mb-4">
+                I developed the entire backend from scratch and deployed it for public use. The tool is now live and actively used by analysts and peers in the community.
               </p>
               
               <div className="space-y-2 mb-4">
@@ -57,11 +60,13 @@ const ProjectsSection = () => {
                   rel="noopener noreferrer"
                   className="text-primary hover:underline"
                 >
-                  Live demo
+                  sr2000.onrender.com
                 </a>
                 <button 
                   className="text-primary hover:underline ml-auto"
-                  onClick={() => window.open('https://sr2000.onrender.com', '_blank')}
+                  onClick={() => {
+                    alert("SR2000 is a comprehensive security analysis tool that revolutionizes how security teams handle IP and hash analysis. Built with efficiency in mind, it addresses the common challenge of analyzing multiple IPs and hashes simultaneously. The tool has become an essential part of many security analysts' workflow, significantly reducing analysis time and improving threat detection capabilities.");
+                  }}
                 >
                   Read more →
                 </button>
