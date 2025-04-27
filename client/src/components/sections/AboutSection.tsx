@@ -9,7 +9,7 @@ import Navigation from "@/components/Navigation";
 import { fadeInUp, staggerContainer, slideInFromLeft } from "@/lib/animation";
 
 // Import profile image from assets
-import profileImage from "@assets/3.png";
+import profileImage from "@assets/WhatsApp Image 2025-04-27 at 12.13.21 PM.jpeg";
 
 const AboutSection = () => {
   return (
