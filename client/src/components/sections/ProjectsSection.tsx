@@ -183,7 +183,7 @@ const ProjectsSection = () => {
                   <p className="text-lg mb-4">
                     In this project, I explored the security vulnerabilities in Android applications by modifying a free music streaming app to inject malicious code, gaining access to the device's camera, microphone, location, and keystrokes. after open sourced the code i deleted it so no one can use it for malicious intent.
                   </p>
-                  <div className="bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-lg mb-4">
+                  <div className="p-4 mb-4">
                     <p className="text-sm">
                       <strong>warning:</strong> This project was aimed at highlighting the importance of app security and the potential risks of malicious software. I strongly discourage any malicious use of the code and believe that the insights gained should only be used for improving security and protecting users.
                     </p>
