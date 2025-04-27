@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import ProjectsIcon from "@/components/icons/ProjectsIcon";
 import { fadeInUp, staggerContainer } from "@/lib/animation";
 
 const ProjectsSection = () => {
+  const [expanded, setExpanded] = useState(false);
   return (
     <motion.section
       className="min-h-screen container mx-auto py-10 md:py-16 flex flex-col justify-center"
@@ -27,12 +29,20 @@ const ProjectsSection = () => {
           <div className="space-y-8">
             <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow">
               <h3 className="text-2xl font-bold mb-4">SR2000 – Multi-IP & Hash Analysis Tool</h3>
-              <p className="text-lg mb-4">
-                While working with our SOC team, we ran into a recurring issue analyzing multiple IP addresses one at a time was inefficient and time-consuming. To solve this, I created SR2000, a custom tool that enables bulk IP analysis, streamlining the workflow for security teams.
-              </p>
-              <p className="text-lg mb-4">
-                I developed the entire backend from scratch and deployed it for public use. The tool is now live and actively used by analysts and peers in the community.
-              </p>
+              {expanded ? (
+                <>
+                  <p className="text-lg mb-4">
+                    While working with our SOC team, we ran into a recurring issue analyzing multiple IP addresses one at a time was inefficient and time-consuming. To solve this, I created SR2000, a custom tool that enables bulk IP analysis, streamlining the workflow for security teams.
+                  </p>
+                  <p className="text-lg mb-4">
+                    I developed the entire backend from scratch and deployed it for public use. The tool is now live and actively used by analysts and peers in the community.
+                  </p>
+                </>
+              ) : (
+                <p className="text-lg mb-4">
+                  A custom tool that enables bulk IP analysis and hash verification, streamlining security teams' workflow...
+                </p>
+              )}
               
               <div className="space-y-2 mb-4">
                 <p className="text-lg">Key Features:</p>
@@ -64,11 +74,9 @@ const ProjectsSection = () => {
                 </a>
                 <button 
                   className="text-primary hover:underline ml-auto"
-                  onClick={() => {
-                    alert("SR2000 is a comprehensive security analysis tool that revolutionizes how security teams handle IP and hash analysis. Built with efficiency in mind, it addresses the common challenge of analyzing multiple IPs and hashes simultaneously. The tool has become an essential part of many security analysts' workflow, significantly reducing analysis time and improving threat detection capabilities.");
-                  }}
+                  onClick={() => setExpanded(!expanded)}
                 >
-                  Read more →
+                  {expanded ? "Show less ←" : "Read more →"}
                 </button>
               </div>
             </div>
