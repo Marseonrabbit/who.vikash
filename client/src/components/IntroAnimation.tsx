@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import DragonIcon from "@/components/icons/DragonIcon";
 import { typingEffect } from "@/lib/typing-effect";
+
+// Import the dragon image
+import dragontLogo from "@assets/1.png"; 
 
 interface IntroAnimationProps {
   onComplete: () => void;
@@ -12,7 +14,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   const typingTextRef = useRef<HTMLSpanElement>(null);
   
   useEffect(() => {
-    // First show the dragon icon
+    // First show the dragon image
     const timer = setTimeout(() => {
       // Then start typing the command
       const text = "kali@Rabbit:~ whoami";
@@ -37,14 +39,18 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.8 } }}
     >
-      {/* Dragon Icon */}
+      {/* Dragon Image */}
       <motion.div
-        className="w-48 h-48 mb-12"
+        className="w-64 h-64 mb-12 flex items-center justify-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <DragonIcon className="w-full h-full text-primary" />
+        <img 
+          src={dragontLogo} 
+          alt="Dragon Logo" 
+          className="max-w-full max-h-full object-contain" 
+        />
       </motion.div>
       
       {/* Terminal Text */}
