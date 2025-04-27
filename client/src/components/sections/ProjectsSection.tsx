@@ -172,6 +172,51 @@ const ProjectsSection = () => {
                 </button>
               </div>
             </div>
+
+            <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow mt-8">
+              <h2 className="text-3xl font-bold mb-4">Project 4: Developed an Android RAT Using a Free Music Streaming App</h2>
+              {expanded ? (
+                <>
+                  <p className="text-lg mb-4">
+                    In this project, I explored the security vulnerabilities in Android applications by modifying a free music streaming app to inject malicious code, gaining access to the device's camera, microphone, location, and keystrokes. After open sourcing the code, I deleted it to prevent malicious use.
+                  </p>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-lg">Key Findings:</p>
+                    <ul className="list-none space-y-2">
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">⚠️</span>
+                        Successfully demonstrated how seemingly harmless apps could be modified for malicious purposes
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        Gained insights into Android app security vulnerabilities
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        Highlighted the importance of thorough app security testing
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-yellow-100 dark:bg-yellow-900/30 p-4 rounded-lg mb-4">
+                    <p className="text-sm">
+                      <strong>Warning:</strong> This project was aimed at highlighting the importance of app security and the potential risks of malicious software. I strongly discourage any malicious use of the code and believe that the insights gained should only be used for improving security and protecting users.
+                    </p>
+                  </div>
+                </>
+              ) : (
+                <p className="text-lg mb-4">
+                  A security research project exploring Android application vulnerabilities through code injection...
+                </p>
+              )}
+              <div className="flex justify-end mt-4">
+                <button 
+                  className="text-primary hover:underline"
+                  onClick={() => setExpanded(!expanded)}
+                >
+                  {expanded ? "Show less ←" : "Read more →"}
+                </button>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
