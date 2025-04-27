@@ -120,6 +120,58 @@ const ProjectsSection = () => {
                 </button>
               </div>
             </div>
+
+            <div className="bg-card rounded-lg p-6 hover:shadow-lg transition-shadow mt-8">
+              <h2 className="text-3xl font-bold mb-4">Project 3: Hacked the RFID Tech of Jaipur Metro Station</h2>
+              {expanded ? (
+                <>
+                  <p className="text-lg mb-4">
+                    In this project, I explored vulnerabilities in the Jaipur Metro's RFID-based fare system. I developed an Android application that could read and regenerate the RFID tokens (metro coins), allowing them to be reused multiple times.
+                  </p>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-lg">Approach:</p>
+                    <ul className="list-none space-y-2">
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        RFID Token Cloning: Using an RFID reader and my Android application, I successfully read the unique identification data from Jaipur Metro's RFID tokens.
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        App Development: The application I created was capable of regenerating the RFID data onto new, blank tags, effectively cloning the metro token for repeated use.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="space-y-2 mb-4">
+                    <p className="text-lg">Findings:</p>
+                    <ul className="list-none space-y-2">
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        The metro's RFID system lacked robust encryption, allowing the cloned tokens to be used repeatedly without detection.
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        This vulnerability could lead to unauthorized access to the metro system, enabling fare evasion.
+                      </li>
+                    </ul>
+                  </div>
+                  <p className="text-lg mb-4">
+                    This project highlighted the weaknesses in Jaipur Metro's RFID ticketing system. By exposing these vulnerabilities, I aimed to raise awareness about the importance of securing fare collection systems and recommended measures to improve system integrity.
+                  </p>
+                </>
+              ) : (
+                <p className="text-lg mb-4">
+                  A security research project exploring vulnerabilities in the Jaipur Metro's RFID-based fare system...
+                </p>
+              )}
+              <div className="flex justify-end mt-4">
+                <button 
+                  className="text-primary hover:underline"
+                  onClick={() => setExpanded(!expanded)}
+                >
+                  {expanded ? "Show less ←" : "Read more →"}
+                </button>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
