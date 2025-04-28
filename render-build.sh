@@ -8,6 +8,9 @@ echo "==> Starting Render.com build process..."
 # Install dependencies including tools needed for build
 echo "==> Installing dependencies..."
 npm install
+echo "==> Installing ALL dev dependencies..."
+npm install --save-dev 
+echo "==> Installing specific build dependencies..."
 npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss esbuild postcss
 npm install --save-dev typescript @types/node
 
