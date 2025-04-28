@@ -38,27 +38,6 @@ const experiences: Experience[] = [
         "Successfully managed 10+ client accounts simultaneously with consistent positive feedback."
       ]
     }
-  },
-  {
-    id: 2,
-    title: "Freelance Photographer",
-    period: "2022 - Present",
-    description: "Working with various clients on food photography, product shoots, and landscape photography for publications.",
-    skills: ["Food Photography", "Landscape", "Editorial"]
-  },
-  {
-    id: 3,
-    title: "Assistant Photographer",
-    period: "2021 - 2022",
-    description: "Worked with established photographers on various commercial projects, learning professional techniques and client management.",
-    skills: ["Studio Work", "Commercial", "Lighting"]
-  },
-  {
-    id: 4,
-    title: "Photography Internship",
-    period: "2020 - 2021",
-    description: "Learned fundamental photography skills and post-processing techniques at a local studio.",
-    skills: ["Basics", "Post-processing", "Client Relations"]
   }
 ];
 
