@@ -19,35 +19,46 @@ A sophisticated personal portfolio website showcasing professional experience wi
 
 ## Deployment to Render.com
 
-This project is set up for easy deployment on Render.com.
+Follow these steps to deploy your portfolio on Render.com:
 
-### Automatic Deployment with Render Dashboard
+### Step 1: Prepare Your Repository
 
-1. Fork or push this repository to GitHub or GitLab
-2. Log in to [Render](https://dashboard.render.com/)
-3. Click "New +" and select "Web Service"
-4. Connect your GitHub/GitLab account and select the repository
-5. Use the following settings:
-   - Name: `your-portfolio` (or any name you prefer)
-   - Environment: `Node`
-   - Build Command: `npm install && npm run build`
-   - Start Command: `npm start`
-6. Click "Create Web Service"
+1. Create a new repository on GitHub or GitLab
+2. Push your code to the repository
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin YOUR_REPOSITORY_URL
+   git push -u origin main
+   ```
 
-### Using Render Blueprint
+### Step 2: Set Up on Render.com
 
-This project includes a `render.yaml` file for Blueprint deployments:
+1. Sign up or log in to [Render](https://dashboard.render.com/)
+2. From your dashboard, click "New +" and select "Web Service"
+3. Connect your GitHub/GitLab account if you haven't already
+4. Find and select your portfolio repository
 
-1. Push your code to GitHub or GitLab
-2. Go to the Render Dashboard
-3. Click "New +" and select "Blueprint"
-4. Connect and select your repository
-5. Render will automatically detect and use the configurations in render.yaml
-6. Click "Apply" to create the web service
+### Step 3: Configure Your Web Service
 
-### Environment Variables
+Use these settings in the Render dashboard:
+- **Name**: `your-portfolio` (or any name you prefer)
+- **Environment**: `Node`
+- **Region**: Choose the closest to your audience
+- **Branch**: `main` (or your default branch)
+- **Build Command**: `npm install && npm run build`
+- **Start Command**: `npm start`
+- **Plan**: Free (can upgrade later)
 
-No environment variables are required for basic functionality.
+### Step 4: Advanced Options (Optional)
+
+Click "Advanced" and add the following environment variable:
+- **PORT**: `10000` (Render's default port)
+
+### Step 5: Deploy
+
+Click "Create Web Service" and wait for the deployment to complete. Render will provide you with a URL like `https://your-portfolio.onrender.com` when it's ready.
 
 ## Local Development
 
@@ -58,10 +69,10 @@ npm install
 # Start development server
 npm run dev
 
-# Build for production
+# Build for production (not needed for Render deployment)
 npm run build
 
-# Start production server
+# Start production server (not needed for Render deployment)
 npm start
 ```
 
