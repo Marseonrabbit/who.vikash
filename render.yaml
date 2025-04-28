@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: portfolio
+    env: node
+    region: oregon # Choose the region closest to you or your audience
+    plan: free # Upgrade as needed
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000 # Render assigns a PORT env variable, default 10000
+    healthCheckPath: /
