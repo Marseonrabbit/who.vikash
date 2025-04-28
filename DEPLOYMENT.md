@@ -42,7 +42,7 @@ git push
 2. Configure the service with the following settings:
    - **Name**: Your choice (e.g., "portfolio")
    - **Environment**: Node
-   - **Build Command**: `npm install && npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss esbuild postcss vite && node build.js`
+   - **Build Command**: `npm install && npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss @tailwindcss/typography esbuild postcss vite && node build.js`
    - **Start Command**: `node dist/start.js`
    - **Environment Variables**:
      - `NODE_ENV`: `production`
@@ -87,7 +87,7 @@ To test the build process locally:
 ```bash
 # Install required dependencies
 npm install
-npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss esbuild postcss vite
+npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss @tailwindcss/typography esbuild postcss vite
 
 # Run the build script
 node build.js

@@ -1,0 +1,164 @@
+==> Cloning from https://github.com/Marseonrabbit/who.vikash
+==> Checking out commit d70488fb5531feea17d301edc7ffe937abc7dea4 in branch main
+==> Downloading cache...
+==> Transferred 179MB in 8s. Extraction took 4s.
+==> Using Node.js version 22.14.0 (default)
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Using Bun version 1.1.0 (default)
+==> Docs on specifying a bun version: https://render.com/docs/bun-version
+==> Running build command 'chmod +x render-build.sh && ./render-build.sh'...
+==> Starting Render.com build process...
+==> Installing dependencies...
+changed 1 package, and audited 397 packages in 1s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+==> Installing ALL dev dependencies...
+up to date, audited 397 packages in 863ms
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+==> Installing specific build dependencies...
+changed 1 package, and audited 397 packages in 4s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+up to date, audited 397 packages in 1s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+==> Verifying critical dependencies...
+rest-express@1.0.0 /opt/render/project/src
+└── (empty)
+rest-express@1.0.0 /opt/render/project/src
+└─┬ @tailwindcss/vite@4.1.3
+  └─┬ vite@5.4.14
+    └── esbuild@0.21.5
+rest-express@1.0.0 /opt/render/project/src
+├─┬ @tailwindcss/vite@4.1.3
+│ ├─┬ @tailwindcss/node@4.1.3
+│ │ └── tailwindcss@4.1.3
+│ └── tailwindcss@4.1.3
+└─┬ tailwindcss-animate@1.0.7
+  └── tailwindcss@3.4.17
+rest-express@1.0.0 /opt/render/project/src
+├─┬ @tailwindcss/vite@4.1.3
+│ └─┬ vite@5.4.14
+│   └── postcss@8.5.3
+└─┬ tailwindcss-animate@1.0.7
+  └─┬ tailwindcss@3.4.17
+    ├─┬ postcss-import@15.1.0
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-js@4.0.1
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-load-config@4.0.2
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-nested@6.2.0
+    │ └── postcss@8.5.3 deduped
+    └── postcss@8.5.3 deduped
+==> Using existing vite.config.render.ts...
+Creating default index.html as backup...
+==> Building client with simplified Vite config...
+vite v5.4.14 building for production...
+transforming...
+✓ 4 modules transformed.
+x Build failed in 201ms
+error during build:
+[vite:css] [postcss] Cannot find module '@tailwindcss/typography'
+Require stack:
+- /opt/render/project/src/tailwind.config.ts
+file: /opt/render/project/src/client/src/index.css:undefined:NaN
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+    at Function.resolve (node:internal/modules/helpers:146:19)
+    at _resolve (/opt/render/project/src/node_modules/jiti/dist/jiti.js:1:241814)
+    at jiti (/opt/render/project/src/node_modules/jiti/dist/jiti.js:1:244531)
+    at /opt/render/project/src/tailwind.config.ts:89:45
+    at evalModule (/opt/render/project/src/node_modules/jiti/dist/jiti.js:1:247313)
+    at jiti (/opt/render/project/src/node_modules/jiti/dist/jiti.js:1:245241)
+    at /opt/render/project/src/node_modules/tailwindcss/lib/lib/load-config.js:52:26
+    at loadConfig (/opt/render/project/src/node_modules/tailwindcss/lib/lib/load-config.js:62:6)
+    at getTailwindConfig (/opt/render/project/src/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:71:116)
+==> Vite build failed, attempting alternative build...
+==> Skipping Vite build and manually creating static files
+==> Building server...
+==> Skipping esbuild and using fallback server directly
+==> esbuild failed, creating fallback server build...
+==> Copying enhanced fallback HTML...
+==> Creating server start script...
+==> Setting up static files...
+==> Creating or verifying server file...
+==> Creating start script...
+==> Verifying build output...
+==> Files in current directory:
+total 800
+drwxr-sr-x   9 render render   4096 Apr 28 05:48 .
+drwxr-sr-x   4 render render   4096 Apr 28 05:47 ..
+drwxr-sr-x   8 render render   4096 Apr 28 05:47 .git
+-rw-r--r--   1 render render    493 Apr 28 05:47 .gitignore
+-rw-r--r--   1 render render    676 Apr 28 05:47 .replit
+-rw-r--r--   1 render render   3084 Apr 28 05:47 DEPLOYMENT.md
+-rw-r--r--   1 render render     14 Apr 28 05:47 Procfile
+-rw-r--r--   1 render render   2652 Apr 28 05:47 README.md
+drwxr-sr-x   2 render render   4096 Apr 28 05:47 attached_assets
+-rw-r--r--   1 render render   8245 Apr 28 05:47 build.js
+-rwxr-xr-x   1 render render    465 Apr 28 05:47 build.sh
+drwxr-sr-x   3 render render   4096 Apr 28 05:47 client
+-rw-r--r--   1 render render    459 Apr 28 05:47 components.json
+drwxr-sr-x   3 render render   4096 Apr 28 05:48 dist
+-rw-r--r--   1 render render    325 Apr 28 05:47 drizzle.config.ts
+-rw-r--r--   1 render render   6067 Apr 28 05:47 enhanced-fallback.html
+-rw-r--r--   1 render render 331570 Apr 28 05:47 generated-icon.png
+drwxr-sr-x 286 render render  16384 Apr 28 05:48 node_modules
+-rw-r--r--   1 render render 320490 Apr 28 05:48 package-lock.json
+-rw-r--r--   1 render render   3589 Apr 28 05:48 package.json
+-rw-r--r--   1 render render    146 Apr 28 05:47 postcss.config.js
+-rwxr-xr-x   1 render render  19628 Apr 28 05:47 render-build.sh
+-rw-r--r--   1 render render    515 Apr 28 05:47 render.yaml
+drwxr-sr-x   2 render render   4096 Apr 28 05:47 server
+drwxr-sr-x   2 render render   4096 Apr 28 05:47 shared
+-rw-r--r--   1 render render    235 Apr 28 05:48 simple.vite.config.cjs
+-rwxr-xr-x   1 render render    370 Apr 28 05:47 start.sh
+-rw-r--r--   1 render render   2787 Apr 28 05:47 tailwind.config.ts
+-rw-r--r--   1 render render    657 Apr 28 05:47 tsconfig.json
+-rw-r--r--   1 render render    650 Apr 28 05:48 vite.config.render.js
+-rw-r--r--   1 render render    650 Apr 28 05:47 vite.config.render.ts
+-rw-r--r--   1 render render    894 Apr 28 05:47 vite.config.ts
+==> Files in dist directory:
+total 32
+drwxr-sr-x 3 render render 4096 Apr 28 05:48 .
+drwxr-sr-x 9 render render 4096 Apr 28 05:48 ..
+-rw-r--r-- 1 render render 6067 Apr 28 05:48 enhanced-fallback.html
+-rw-r--r-- 1 render render 7614 Apr 28 05:48 index.js
+drwxr-sr-x 2 render render 4096 Apr 28 05:48 public
+-rw-r--r-- 1 render render  257 Apr 28 05:48 start.js
+==> Files in dist/public directory:
+total 12
+drwxr-sr-x 2 render render 4096 Apr 28 05:48 .
+drwxr-sr-x 3 render render 4096 Apr 28 05:48 ..
+-rw-r--r-- 1 render render 3070 Apr 28 05:48 index.html
+==> Uploading build...
+==> Uploaded in 4.2s. Compression took 2.0s
+==> Build successful 🎉
+==> Deploying...
+==> Running 'node dist/start.js'
+Starting application...
+Using enhanced fallback HTML
+Static directory: /opt/render/project/src/dist/public
+Index file exists: true
+Directory content:
+[ 'index.html' ]
+Server running on port 10000
+Server directory: /opt/render/project/src/dist
+==> Your service is live 🎉

@@ -146,6 +146,22 @@ try {
 async function main() {
   console.log('Starting build process...');
   
+  // Check for required dependencies and install if missing
+  try {
+    console.log('Checking for required dependencies...');
+    require('@tailwindcss/typography');
+    console.log('Typography plugin found.');
+  } catch (error) {
+    console.log('Typography plugin not found, installing...');
+    const { execSync } = require('child_process');
+    try {
+      execSync('npm install --save-dev @tailwindcss/typography', { stdio: 'inherit' });
+      console.log('Typography plugin installed successfully.');
+    } catch (installError) {
+      console.error('Failed to install typography plugin:', installError);
+    }
+  }
+  
   // Ensure the enhanced-fallback.html exists
   if (!fs.existsSync(path.resolve(__dirname, 'enhanced-fallback.html'))) {
     console.log('Creating enhanced-fallback.html...');

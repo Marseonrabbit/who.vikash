@@ -4,7 +4,7 @@ services:
     env: node
     region: oregon # Choose the region closest to you or your audience
     plan: free # Upgrade as needed
-    buildCommand: npm install && npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss esbuild postcss vite && node build.js
+    buildCommand: npm install && npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss @tailwindcss/typography esbuild postcss vite && node build.js
     startCommand: node dist/start.js
     envVars:
       - key: NODE_ENV
