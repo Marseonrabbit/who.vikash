@@ -6,18 +6,30 @@ import { fadeInUp, staggerContainer } from "@/lib/animation";
 const books = [
   {
     id: 1,
+    title: "Computer Networking: A Top-Down Approach",
+    description: "By Kurose & Ross - A comprehensive introduction to computer networking concepts and protocols.",
+    year: "2021"
+  },
+  {
+    id: 2,
+    title: "The Linux Command Line: A Complete Introduction",
+    description: "By William E. Shotts Jr. - A comprehensive guide to mastering the Linux command line interface.",
+    year: "2019"
+  },
+  {
+    id: 3,
     title: "The Art of Food Photography",
     description: "A comprehensive guide to food styling and photography techniques.",
     year: "2022"
   },
   {
-    id: 2,
+    id: 4,
     title: "Landscape Photography Essentials",
     description: "Capturing the beauty of natural landscapes across all seasons.",
     year: "2021"
   },
   {
-    id: 3,
+    id: 5,
     title: "Light & Shadow: Portrait Techniques",
     description: "Master the art of portrait lighting for stunning images.",
     year: "2020"
@@ -45,7 +57,24 @@ const BooksSection = () => {
           className="space-y-6"
           variants={fadeInUp}
         >
-          {books.map((book) => (
+          {books.slice(0, 2).map((book) => (
+            <div key={book.id} className="bg-card p-5 rounded-lg">
+              <h3 className="text-xl font-semibold mb-2">{book.title}</h3>
+              <p className="text-muted-foreground mb-3">{book.description}</p>
+              <div className="flex justify-between items-center">
+                <span className="text-primary text-sm">{book.year}</span>
+                <a href="#" className="text-foreground hover:text-primary transition-colors">Read More →</a>
+              </div>
+            </div>
+          ))}
+          
+          <div className="bg-card p-5 rounded-lg border border-dashed border-primary">
+            <p className="text-center text-muted-foreground italic">
+              Currently I'm working on multiple things so whenever I get the time to update the book shelf I will update this section.
+            </p>
+          </div>
+          
+          {books.slice(2).map((book) => (
             <div key={book.id} className="bg-card p-5 rounded-lg">
               <h3 className="text-xl font-semibold mb-2">{book.title}</h3>
               <p className="text-muted-foreground mb-3">{book.description}</p>
