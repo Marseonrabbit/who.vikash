@@ -1,0 +1,171 @@
+==> Checking out commit bcbdbc4170c8f6a2ad9ad98789ab6996a6dd84e5 in branch main
+==> Downloading cache...
+==> Transferred 179MB in 8s. Extraction took 3s.
+==> Using Node.js version 22.14.0 (default)
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Using Bun version 1.1.0 (default)
+==> Docs on specifying a bun version: https://render.com/docs/bun-version
+==> Running build command 'chmod +x render-build.sh && ./render-build.sh'...
+==> Starting Render.com build process...
+==> Installing dependencies...
+changed 1 package, and audited 397 packages in 1s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+changed 1 package, and audited 397 packages in 5s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+up to date, audited 397 packages in 1s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+==> Verifying critical dependencies...
+rest-express@1.0.0 /opt/render/project/src
+└── (empty)
+rest-express@1.0.0 /opt/render/project/src
+└─┬ @tailwindcss/vite@4.1.3
+  └─┬ vite@5.4.14
+    └── esbuild@0.21.5
+rest-express@1.0.0 /opt/render/project/src
+├─┬ @tailwindcss/vite@4.1.3
+│ ├─┬ @tailwindcss/node@4.1.3
+│ │ └── tailwindcss@4.1.3
+│ └── tailwindcss@4.1.3
+└─┬ tailwindcss-animate@1.0.7
+  └── tailwindcss@3.4.17
+rest-express@1.0.0 /opt/render/project/src
+├─┬ @tailwindcss/vite@4.1.3
+│ └─┬ vite@5.4.14
+│   └── postcss@8.5.3
+└─┬ tailwindcss-animate@1.0.7
+  └─┬ tailwindcss@3.4.17
+    ├─┬ postcss-import@15.1.0
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-js@4.0.1
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-load-config@4.0.2
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-nested@6.2.0
+    │ └── postcss@8.5.3 deduped
+    └── postcss@8.5.3 deduped
+==> Using existing vite.config.render.ts...
+Creating default index.html as backup...
+==> Building client with simplified Vite config...
+vite v5.4.14 building for production...
+transforming...
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+[Failed to load PostCSS config: Failed to load PostCSS config (searchPath: /opt/render/project/src/client): [Error] Loading PostCSS Plugin failed: Cannot find module 'autoprefixer'
+Require stack:
+- /opt/render/project/src/postcss.config.js
+(@/opt/render/project/src/postcss.config.js)
+Error: Loading PostCSS Plugin failed: Cannot find module 'autoprefixer'
+Require stack:
+- /opt/render/project/src/postcss.config.js
+(@/opt/render/project/src/postcss.config.js)
+    at load (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33632:11)
+    at file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33657:16
+    at Array.map (<anonymous>)
+    at plugins (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33656:8)
+    at processResult (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33726:14)
+    at file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33856:14]
+Node.js v22.14.0
+==> Vite build failed, attempting alternative build...
+▲ [WARNING] The CommonJS "module" variable is treated as a global variable in an ECMAScript module and may not work as expected [commonjs-variable-in-esm]
+    simple.vite.config.js:4:0:
+      4 │ module.exports = defineConfig({
+        ╵ ~~~~~~
+  This file is considered to be an ECMAScript module because the enclosing "package.json" file sets the type of this file to "module":
+    package.json:4:10:
+      4 │   "type": "module",
+        ╵           ~~~~~~~~
+  Node's package format requires that CommonJS files in a "type": "module" package use the ".cjs" file extension.
+failed to load config from /opt/render/project/src/simple.vite.config.js
+error during build:
+Error: Dynamic require of "file:///opt/render/project/src/node_modules/vite/dist/node/index.js" is not supported
+    at file:///opt/render/project/src/simple.vite.config.js.timestamp-1745813233793-337612e2b101.mjs:5:9
+    at file:///opt/render/project/src/simple.vite.config.js.timestamp-1745813233793-337612e2b101.mjs:10:24
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async loadConfigFromBundledFile (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:66866:15)
+    at async loadConfigFromFile (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:66707:24)
+    at async resolveConfig (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:66307:24)
+    at async build (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65395:18)
+    at async CAC.<anonymous> (file:///opt/render/project/src/node_modules/vite/dist/node/cli.js:829:5)
+==> Building server...
+sh: 1: esbuild: not found
+==> esbuild failed, creating fallback server build...
+==> Creating server start script...
+==> Setting up static files...
+==> Creating or verifying server file...
+==> Creating start script...
+==> Verifying build output...
+==> Files in current directory:
+total 784
+drwxr-sr-x   9 render render   4096 Apr 28 04:07 .
+drwxr-sr-x   4 render render   4096 Apr 28 04:06 ..
+drwxr-sr-x   8 render render   4096 Apr 28 04:06 .git
+-rw-r--r--   1 render render    493 Apr 28 04:06 .gitignore
+-rw-r--r--   1 render render    676 Apr 28 04:06 .replit
+-rw-r--r--   1 render render   4742 Apr 28 04:06 DEPLOYMENT.md
+-rw-r--r--   1 render render     14 Apr 28 04:06 Procfile
+-rw-r--r--   1 render render   2576 Apr 28 04:06 README.md
+drwxr-sr-x   2 render render   4096 Apr 28 04:06 attached_assets
+-rwxr-xr-x   1 render render    465 Apr 28 04:06 build.sh
+drwxr-sr-x   3 render render   4096 Apr 28 04:06 client
+-rw-r--r--   1 render render    459 Apr 28 04:06 components.json
+drwxr-sr-x   3 render render   4096 Apr 28 04:07 dist
+-rw-r--r--   1 render render    325 Apr 28 04:06 drizzle.config.ts
+-rw-r--r--   1 render render 331570 Apr 28 04:06 generated-icon.png
+drwxr-sr-x 286 render render  16384 Apr 28 04:07 node_modules
+-rw-r--r--   1 render render 320490 Apr 28 04:07 package-lock.json
+-rw-r--r--   1 render render   3589 Apr 28 04:07 package.json
+-rw-r--r--   1 render render     80 Apr 28 04:06 postcss.config.js
+-rwxr-xr-x   1 render render  16687 Apr 28 04:06 render-build.sh
+-rw-r--r--   1 render render    439 Apr 28 04:06 render.yaml
+drwxr-sr-x   2 render render   4096 Apr 28 04:06 server
+drwxr-sr-x   2 render render   4096 Apr 28 04:06 shared
+-rw-r--r--   1 render render    235 Apr 28 04:07 simple.vite.config.js
+-rwxr-xr-x   1 render render    370 Apr 28 04:06 start.sh
+-rw-r--r--   1 render render   2787 Apr 28 04:06 tailwind.config.ts
+-rw-r--r--   1 render render    657 Apr 28 04:06 tsconfig.json
+-rw-r--r--   1 render render    650 Apr 28 04:07 vite.config.render.js
+-rw-r--r--   1 render render    650 Apr 28 04:06 vite.config.render.ts
+-rw-r--r--   1 render render    894 Apr 28 04:06 vite.config.ts
+==> Files in dist directory:
+total 24
+drwxr-sr-x 3 render render 4096 Apr 28 04:07 .
+drwxr-sr-x 9 render render 4096 Apr 28 04:07 ..
+-rw-r--r-- 1 render render 5156 Apr 28 04:07 index.js
+drwxr-sr-x 2 render render 4096 Apr 28 04:07 public
+-rw-r--r-- 1 render render  257 Apr 28 04:07 start.js
+==> Files in dist/public directory:
+total 12
+drwxr-sr-x 2 render render 4096 Apr 28 04:07 .
+drwxr-sr-x 3 render render 4096 Apr 28 04:07 ..
+-rw-r--r-- 1 render render 3070 Apr 28 04:07 index.html
+==> Uploading build...
+==> Uploaded in 5.7s. Compression took 2.1s
+==> Build successful 🎉
+==> Deploying...
+==> Running 'node --experimental-modules dist/start.js'
+Starting application...
+Static directory: /opt/render/project/src/dist/public
+Index file exists: true
+Directory content:
+[ 'index.html' ]
+Server running on port 10000
+Server directory: /opt/render/project/src/dist
+==> Your service is live 🎉
+

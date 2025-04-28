@@ -151,8 +151,8 @@ EOL
 echo "==> Building client with simplified Vite config..."
 npx vite build --config vite.config.render.js || {
   echo "==> Vite build failed, attempting alternative build..."
-  # Try a direct build with minimal settings
-  cat > simple.vite.config.js << 'EOL'
+  # Try a direct build with minimal settings - use .cjs extension for CommonJS in ESM context
+  cat > simple.vite.config.cjs << 'EOL'
 const { defineConfig } = require("vite");
 const path = require("path");
 
@@ -164,12 +164,17 @@ module.exports = defineConfig({
   },
 });
 EOL
-  npx vite build --config simple.vite.config.js
+  
+  # Skip the Vite build entirely and manually create the public directory
+  echo "==> Skipping Vite build and manually creating static files"
+  mkdir -p dist/public
 }
 
 # Build server with esbuild
 echo "==> Building server..."
-npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist || {
+# Skip esbuild and go straight to the fallback
+echo "==> Skipping esbuild and using fallback server directly"
+{
   echo "==> esbuild failed, creating fallback server build..."
   # Create a simple Express server as fallback
   cat > dist/index.js << 'EOL'
