@@ -52,7 +52,7 @@ Use these settings in the Render dashboard:
 - **Environment**: `Node`
 - **Region**: Choose the closest to your audience
 - **Branch**: `main` (or your default branch)
-- **Build Command**: `chmod +x render-build.sh && ./render-build.sh`
+- **Build Command**: `npm install && npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss esbuild postcss vite && node build.js`
 - **Start Command**: `node dist/start.js`
 - **Plan**: Free (can upgrade later)
 
