@@ -21,7 +21,7 @@ const experiences: Experience[] = [
   {
     id: 1,
     title: "SEO & Digital Marketer – Digital Miles, Jaipur",
-    period: "February 2023 – March 2024",
+    period: "November 2022 – January 2024",
     description: "Acted as the primary point of contact for multiple clients, handling SEO and Google Ads campaigns while providing detailed performance analysis.",
     skills: ["SEO", "Google Ads", "Client Management", "Digital Strategy"],
     details: {
