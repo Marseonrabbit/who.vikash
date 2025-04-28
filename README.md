@@ -53,7 +53,7 @@ Use these settings in the Render dashboard:
 - **Region**: Choose the closest to your audience
 - **Branch**: `main` (or your default branch)
 - **Build Command**: `chmod +x render-build.sh && ./render-build.sh`
-- **Start Command**: `node --experimental-modules dist/start.js`
+- **Start Command**: `node dist/start.js`
 - **Plan**: Free (can upgrade later)
 
 ### Step 4: Advanced Options (Required)

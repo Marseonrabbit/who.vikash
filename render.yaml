@@ -5,7 +5,7 @@ services:
     region: oregon # Choose the region closest to you or your audience
     plan: free # Upgrade as needed
     buildCommand: chmod +x render-build.sh && ./render-build.sh
-    startCommand: node --experimental-modules dist/start.js
+    startCommand: node dist/start.js
     envVars:
       - key: NODE_ENV
         value: production

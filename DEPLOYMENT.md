@@ -58,7 +58,7 @@ git push -u origin main
 ### 4. Build Settings
 
 - **Build Command**: `chmod +x render-build.sh && ./render-build.sh`
-- **Start Command**: `node --experimental-modules dist/start.js`
+- **Start Command**: `node dist/start.js`
 - **Plan**: Select "Free" to start
 
 Note: This uses a custom build script that simplifies the Vite configuration for Render.com compatibility.
@@ -88,17 +88,32 @@ Once the deployment is complete:
 
 ## Troubleshooting Common Deployment Errors
 
-If you encounter the error `Error: Cannot find module '/opt/render/project/src/dist/index.js'`:
+### Missing dependencies
 
-1. Make sure your build command is actually creating the dist/index.js file
-2. Try using the more explicit build command provided above rather than using scripts
-3. Check the build logs for any errors during the build process
+If you encounter errors related to missing packages like `Cannot find module 'autoprefixer'` or `esbuild: not found`:
 
-If you encounter the error `Cannot find package '@vitejs/plugin-react'`:
+1. The build script has been updated to automatically install needed dependencies
+2. If you still encounter issues, try manually adding these dependencies to your package.json:
+   ```
+   npm install --save-dev autoprefixer tailwindcss esbuild postcss @vitejs/plugin-react typescript @types/node
+   ```
+3. Commit and push these changes to your repository before deploying
 
-1. Make sure to add this dependency to your project before deploying
-2. You can do this by running `npm install --save-dev @vitejs/plugin-react`
-3. Push the updated package.json and package-lock.json to your repository
+### Build process failures
+
+If the build fails with various errors:
+
+1. Check the build logs for specific error messages
+2. The updated build script includes fallback mechanisms to ensure a successful deployment even if parts of the build fail
+3. If you see a placeholder page after deployment, this means the automatic fallback was used
+
+### Server startup issues
+
+If the deployment completes but the site doesn't load:
+
+1. Check the logs on Render.com for any runtime errors
+2. Make sure the PORT environment variable is set correctly (should be 10000)
+3. The updated start script includes better error handling to help diagnose issues
 
 ## Continuous Deployment
 

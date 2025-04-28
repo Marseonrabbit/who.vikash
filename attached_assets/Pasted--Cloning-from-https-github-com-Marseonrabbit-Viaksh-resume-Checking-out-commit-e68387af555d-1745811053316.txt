@@ -1,0 +1,81 @@
+==> Cloning from https://github.com/Marseonrabbit/Viaksh.resume
+==> Checking out commit e68387af555dbc3a32ef49aada6398628aeca0ad in branch main
+==> Using Node.js version 22.14.0 (default)
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Using Bun version 1.1.0 (default)
+==> Docs on specifying a bun version: https://render.com/docs/bun-version
+==> Running build command 'chmod +x render-build.sh && ./render-build.sh'...
+==> Starting Render.com build process...
+==> Installing dependencies...
+added 396 packages, and audited 397 packages in 8s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+up to date, audited 397 packages in 3s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+==> Using existing vite.config.render.ts...
+==> Building client with simplified Vite config...
+vite v5.4.14 building for production...
+transforming...
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+[Failed to load PostCSS config: Failed to load PostCSS config (searchPath: /opt/render/project/src/client): [Error] Loading PostCSS Plugin failed: Cannot find module 'autoprefixer'
+Require stack:
+- /opt/render/project/src/postcss.config.js
+(@/opt/render/project/src/postcss.config.js)
+Error: Loading PostCSS Plugin failed: Cannot find module 'autoprefixer'
+Require stack:
+- /opt/render/project/src/postcss.config.js
+(@/opt/render/project/src/postcss.config.js)
+    at load (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33632:11)
+    at file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33657:16
+    at Array.map (<anonymous>)
+    at plugins (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33656:8)
+    at processResult (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33726:14)
+    at file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33856:14]
+Node.js v22.14.0
+==> Building server...
+sh: 1: esbuild: not found
+==> Creating server start script...
+./render-build.sh: line 53: dist/start.js: No such file or directory
+==> Verifying build output...
+==> ERROR: Build failed to generate expected files.
+total 756
+drwxr-sr-x   8 render render   4096 Apr 28 03:30 .
+drwxr-sr-x   4 render render   4096 Apr 28 03:30 ..
+drwxr-sr-x   8 render render   4096 Apr 28 03:30 .git
+-rw-r--r--   1 render render    493 Apr 28 03:30 .gitignore
+-rw-r--r--   1 render render    676 Apr 28 03:30 .replit
+-rw-r--r--   1 render render   4227 Apr 28 03:30 DEPLOYMENT.md
+-rw-r--r--   1 render render     14 Apr 28 03:30 Procfile
+-rw-r--r--   1 render render   2599 Apr 28 03:30 README.md
+drwxr-sr-x   2 render render   4096 Apr 28 03:30 attached_assets
+-rwxr-xr-x   1 render render    465 Apr 28 03:30 build.sh
+drwxr-sr-x   3 render render   4096 Apr 28 03:30 client
+-rw-r--r--   1 render render    459 Apr 28 03:30 components.json
+-rw-r--r--   1 render render    325 Apr 28 03:30 drizzle.config.ts
+-rw-r--r--   1 render render 331570 Apr 28 03:30 generated-icon.png
+drwxr-sr-x 286 render render  12288 Apr 28 03:30 node_modules
+-rw-r--r--   1 render render 320465 Apr 28 03:30 package-lock.json
+-rw-r--r--   1 render render   3588 Apr 28 03:30 package.json
+-rw-r--r--   1 render render     80 Apr 28 03:30 postcss.config.js
+-rwxr-xr-x   1 render render   1998 Apr 28 03:30 render-build.sh
+-rw-r--r--   1 render render    462 Apr 28 03:30 render.yaml
+drwxr-sr-x   2 render render   4096 Apr 28 03:30 server
+drwxr-sr-x   2 render render   4096 Apr 28 03:30 shared
+-rwxr-xr-x   1 render render    370 Apr 28 03:30 start.sh
+-rw-r--r--   1 render render   2787 Apr 28 03:30 tailwind.config.ts
+-rw-r--r--   1 render render    657 Apr 28 03:30 tsconfig.json
+-rw-r--r--   1 render render    650 Apr 28 03:30 vite.config.render.js
+-rw-r--r--   1 render render    650 Apr 28 03:30 vite.config.render.ts
+-rw-r--r--   1 render render    894 Apr 28 03:30 vite.config.ts
+==> Build failed 😞
