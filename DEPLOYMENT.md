@@ -57,15 +57,11 @@ git push -u origin main
 
 ### 4. Build Settings
 
-- **Build Command**: 
-  ```
-  npm install && 
-  npm install --save-dev @vitejs/plugin-react @replit/vite-plugin-runtime-error-modal @replit/vite-plugin-cartographer && 
-  NODE_ENV=production npx vite build && 
-  npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
-  ```
-- **Start Command**: `node dist/index.js`
+- **Build Command**: `chmod +x render-build.sh && ./render-build.sh`
+- **Start Command**: `node --experimental-modules dist/start.js`
 - **Plan**: Select "Free" to start
+
+Note: This uses a custom build script that simplifies the Vite configuration for Render.com compatibility.
 
 ### 5. Advanced Options (Required)
 

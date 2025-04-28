@@ -4,12 +4,8 @@ services:
     env: node
     region: oregon # Choose the region closest to you or your audience
     plan: free # Upgrade as needed
-    buildCommand: >
-      npm install &&
-      npm install --save-dev @vitejs/plugin-react @replit/vite-plugin-runtime-error-modal @replit/vite-plugin-cartographer &&
-      NODE_ENV=production npx vite build &&
-      npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
-    startCommand: node dist/index.js
+    buildCommand: chmod +x render-build.sh && ./render-build.sh
+    startCommand: node --experimental-modules dist/start.js
     envVars:
       - key: NODE_ENV
         value: production

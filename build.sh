@@ -1,27 +1,19 @@
 #!/bin/bash
-# This script builds the client and server for production
 
-echo "Starting build process..."
+# This script is used to build the application for production deployment to Render
 
-# Build client with Vite
-echo "Building client with Vite..."
+# Set production environment
+export NODE_ENV=production
+
+# Install dependencies
+echo "Installing dependencies..."
+npm install
+npm install --save-dev @vitejs/plugin-react
+
+# Build client
+echo "Building client..."
 npx vite build
 
-# Build server with esbuild
-echo "Building server with esbuild..."
+# Build server
+echo "Building server..."
 npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
-
-# Make the scripts executable
-chmod +x start.sh
-
-# Verify that files exist
-echo "Verifying build output..."
-if [ -d "dist" ] && [ -f "dist/index.js" ]; then
-  echo "Build files verified successfully!"
-else
-  echo "ERROR: Build files are missing!"
-  ls -la dist/
-  exit 1
-fi
-
-echo "Build completed successfully!"

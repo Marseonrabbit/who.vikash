@@ -52,14 +52,8 @@ Use these settings in the Render dashboard:
 - **Environment**: `Node`
 - **Region**: Choose the closest to your audience
 - **Branch**: `main` (or your default branch)
-- **Build Command**: 
-  ```
-  npm install && 
-  npm install --save-dev @vitejs/plugin-react @replit/vite-plugin-runtime-error-modal @replit/vite-plugin-cartographer && 
-  NODE_ENV=production npx vite build && 
-  npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
-  ```
-- **Start Command**: `node dist/index.js`
+- **Build Command**: `chmod +x render-build.sh && ./render-build.sh`
+- **Start Command**: `node --experimental-modules dist/start.js`
 - **Plan**: Free (can upgrade later)
 
 ### Step 4: Advanced Options (Required)
