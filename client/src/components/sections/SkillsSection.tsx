@@ -7,15 +7,26 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 import { useState, useEffect } from "react";
 
 const technicalSkills = [
-  { name: "Photography Composition", percentage: 95 },
-  { name: "Lighting Techniques", percentage: 90 },
-  { name: "Post-Processing (Lightroom)", percentage: 85 },
-  { name: "Photo Manipulation (Photoshop)", percentage: 80 },
-  { name: "Studio Equipment", percentage: 75 }
+  { name: "SIEM", percentage: 100 },
+  { name: "EDR/XDR", percentage: 100 },
+  { name: "Email Security", percentage: 100 },
+  { name: "Bash & Python", percentage: 100 },
+  { name: "Linux", percentage: 100 },
+  { name: "Network Operations", percentage: 100 },
+  { name: "Operating Systems", percentage: 100 },
+  { name: "Network Pentesting", percentage: 72 },
+  { name: "Web Pentesting", percentage: 35 },
+  { name: "Active Directory Pentesting", percentage: 24 }
 ];
 
+interface RadarDataItem {
+  subject: string;
+  A: number;
+  fullMark: number;
+}
+
 const SkillsSection = () => {
-  const [radarData, setRadarData] = useState([]);
+  const [radarData, setRadarData] = useState<RadarDataItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -28,16 +39,6 @@ const SkillsSection = () => {
     }));
     setRadarData(transformedData);
     setIsLoading(false);
-  }, []);
-
-  useEffect(() => {
-    // Transform technical skills into radar chart format
-    const transformedData = technicalSkills.map(skill => ({
-      subject: skill.name,
-      A: skill.percentage,
-      fullMark: 100
-    }));
-    setRadarData(transformedData);
   }, []);
 
   return (
@@ -87,7 +88,7 @@ const SkillsSection = () => {
               style={{ background: 'linear-gradient(180deg, #0a1629 0%, #112240 100%)' }}
             >
               <div className="absolute top-0 left-0 w-full text-center py-2 text-sm text-gray-300">
-                PHOTOGRAPHY SKILLS OVERVIEW
+                CYBERSECURITY SKILLS OVERVIEW
               </div>
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart cx="50%" cy="50%" outerRadius="80%" data={radarData}>
@@ -110,9 +111,6 @@ const SkillsSection = () => {
                     stroke="#4d86ff"
                     fill="#4d86ff"
                     fillOpacity={0.6}
-                    onClick={(data) => {
-                      alert(`${data.subject}: ${data.A}%`);
-                    }}
                   />
                   <Tooltip
                     content={({ active, payload }) => {
