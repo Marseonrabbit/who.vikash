@@ -50,6 +50,103 @@ fi
 # Create directory structure
 mkdir -p dist/public
 
+# Create a basic index.html first, just to be safe
+echo "Creating default index.html as backup..."
+cat > dist/public/index.html << 'EOL'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viaksh Portfolio</title>
+  <style>
+    body { 
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    header { margin-bottom: 2rem; }
+    h1 { color: #2a4365; }
+    h2 { color: #2c5282; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; margin-top: 2rem; }
+    .section { margin-bottom: 2rem; }
+    .skill { margin-bottom: 0.5rem; }
+    .skill-name { font-weight: bold; }
+    .skill-bar { 
+      height: 8px;
+      background: #edf2f7;
+      border-radius: 4px;
+      margin-top: 0.25rem;
+    }
+    .skill-level { 
+      height: 100%;
+      background: #4299e1;
+      border-radius: 4px;
+    }
+    .experience { margin-bottom: 1.5rem; }
+    .experience-title { font-weight: bold; margin-bottom: 0.25rem; }
+    .experience-period { color: #718096; font-size: 0.9rem; }
+    .experience-description { margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Viaksh's Portfolio</h1>
+    <p>Cybersecurity Professional & Digital Marketing Specialist</p>
+  </header>
+
+  <div class="section">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">SIEM/EDR</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 100%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Incident Management</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Digital Marketing</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Web Pentesting</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 35%"></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Experience</h2>
+    <div class="experience">
+      <div class="experience-title">Cybersecurity Professional</div>
+      <div class="experience-period">2020 - Present</div>
+      <div class="experience-description">
+        Working with cutting-edge security technology to protect organizations from cyber threats.
+      </div>
+    </div>
+    <div class="experience">
+      <div class="experience-title">Digital Marketing Specialist</div>
+      <div class="experience-period">2018 - 2020</div>
+      <div class="experience-description">
+        Managed online marketing campaigns and optimized web presence for various clients.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Projects</h2>
+    <p>A collection of technical and creative projects will be displayed here once deployment is complete.</p>
+  </div>
+
+  <footer>
+    <p>This is a static fallback version of the portfolio. The full interactive version is being deployed.</p>
+  </footer>
+</body>
+</html>
+EOL
+
 # Build client using the simplified config
 echo "==> Building client with simplified Vite config..."
 npx vite build --config vite.config.render.js || {

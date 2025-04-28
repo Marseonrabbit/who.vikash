@@ -1,0 +1,119 @@
+=> Installing dependencies...
+added 396 packages, and audited 397 packages in 8s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+changed 1 package, and audited 397 packages in 5s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+up to date, audited 397 packages in 1s
+56 packages are looking for funding
+  run `npm fund` for details
+2 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+==> Verifying critical dependencies...
+rest-express@1.0.0 /opt/render/project/src
+└── (empty)
+rest-express@1.0.0 /opt/render/project/src
+└─┬ @tailwindcss/vite@4.1.3
+  └─┬ vite@5.4.14
+    └── esbuild@0.21.5
+rest-express@1.0.0 /opt/render/project/src
+├─┬ @tailwindcss/vite@4.1.3
+│ ├─┬ @tailwindcss/node@4.1.3
+│ │ └── tailwindcss@4.1.3
+│ └── tailwindcss@4.1.3
+└─┬ tailwindcss-animate@1.0.7
+  └── tailwindcss@3.4.17
+rest-express@1.0.0 /opt/render/project/src
+├─┬ @tailwindcss/vite@4.1.3
+│ └─┬ vite@5.4.14
+│   └── postcss@8.5.3
+└─┬ tailwindcss-animate@1.0.7
+  └─┬ tailwindcss@3.4.17
+    ├─┬ postcss-import@15.1.0
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-js@4.0.1
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-load-config@4.0.2
+    │ └── postcss@8.5.3 deduped
+    ├─┬ postcss-nested@6.2.0
+    │ └── postcss@8.5.3 deduped
+    └── postcss@8.5.3 deduped
+==> Using existing vite.config.render.ts...
+==> Building client with simplified Vite config...
+vite v5.4.14 building for production...
+transforming...
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+[Failed to load PostCSS config: Failed to load PostCSS config (searchPath: /opt/render/project/src/client): [Error] Loading PostCSS Plugin failed: Cannot find module 'autoprefixer'
+Require stack:
+- /opt/render/project/src/postcss.config.js
+(@/opt/render/project/src/postcss.config.js)
+Error: Loading PostCSS Plugin failed: Cannot find module 'autoprefixer'
+Require stack:
+- /opt/render/project/src/postcss.config.js
+(@/opt/render/project/src/postcss.config.js)
+    at load (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33632:11)
+    at file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33657:16
+    at Array.map (<anonymous>)
+    at plugins (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33656:8)
+    at processResult (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33726:14)
+    at file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:33856:14]
+Node.js v22.14.0
+==> Vite build failed, attempting alternative build...
+▲ [WARNING] The CommonJS "module" variable is treated as a global variable in an ECMAScript module and may not work as expected [commonjs-variable-in-esm]
+    simple.vite.config.js:4:0:
+      4 │ module.exports = defineConfig({
+        ╵ ~~~~~~
+  This file is considered to be an ECMAScript module because the enclosing "package.json" file sets the type of this file to "module":
+    package.json:4:10:
+      4 │   "type": "module",
+        ╵           ~~~~~~~~
+  Node's package format requires that CommonJS files in a "type": "module" package use the ".cjs" file extension.
+failed to load config from /opt/render/project/src/simple.vite.config.js
+error during build:
+Error: Dynamic require of "file:///opt/render/project/src/node_modules/vite/dist/node/index.js" is not supported
+    at file:///opt/render/project/src/simple.vite.config.js.timestamp-1745812397520-a1c96dcc2487d.mjs:5:9
+    at file:///opt/render/project/src/simple.vite.config.js.timestamp-1745812397520-a1c96dcc2487d.mjs:10:24
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async loadConfigFromBundledFile (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:66866:15)
+    at async loadConfigFromFile (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:66707:24)
+    at async resolveConfig (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:66307:24)
+    at async build (file:///opt/render/project/src/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:65395:18)
+    at async CAC.<anonymous> (file:///opt/render/project/src/node_modules/vite/dist/node/cli.js:829:5)
+==> Building server...
+sh: 1: esbuild: not found
+==> esbuild failed, creating fallback server build...
+==> Creating server start script...
+==> Verifying build output...
+==> Build directory exists
+total 20
+drwxr-sr-x 3 render render 4096 Apr 28 03:53 .
+drwxr-sr-x 9 render render 4096 Apr 28 03:53 ..
+-rw-r--r-- 1 render render  789 Apr 28 03:53 index.js
+drwxr-sr-x 2 render render 4096 Apr 28 03:53 public
+-rw-r--r-- 1 render render  215 Apr 28 03:53 start.js
+==> Public directory exists
+total 8
+drwxr-sr-x 2 render render 4096 Apr 28 03:53 .
+drwxr-sr-x 3 render render 4096 Apr 28 03:53 ..
+==> Build completed!
+==> Uploading build...
+==> Uploaded in 8.3s. Compression took 2.5s
+==> Build successful 🎉
+==> Deploying...
+==> Running 'node --experimental-modules dist/start.js'
+Server running on port 10000
+==> Your service is live 🎉
