@@ -20,6 +20,22 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
+    title: "Cybersecurity Operations Engineer – SafeAeon",
+    period: "March 2024 – Present",
+    description: "Currently working as a Security Operations Engineer, responsible for monitoring, analyzing, and responding to security incidents across client environments.",
+    skills: ["SIEM", "EDR/XDR", "Email Security", "Threat Intelligence"],
+    details: {
+      responsibilities: [
+        "SIEM Management: Actively use Security Information and Event Management (SIEM) tools to monitor real-time alerts, investigate suspicious activity, and conduct incident analysis.",
+        "EDR & XDR Solutions: Work with Endpoint Detection and Response (EDR) and Extended Detection and Response (XDR) platforms to detect advanced threats and mitigate potential risks across endpoints and networks.",
+        "Email Security: Handle email threat analysis including phishing, spoofing, and malicious attachments using advanced email security solutions.",
+        "Incident Response: Participate in triaging, investigating, and escalating incidents based on severity and impact. Maintain detailed documentation for each case handled.",
+        "Threat Hunting: Proactively search for hidden threats in client environments by analyzing logs, patterns, and anomalies using various security tools."
+      ]
+    }
+  },
+  {
+    id: 2,
     title: "SEO & Digital Marketer – Digital Miles, Jaipur",
     period: "November 2022 – January 2024",
     description: "Acted as the primary point of contact for multiple clients, handling SEO and Google Ads campaigns while providing detailed performance analysis.",
