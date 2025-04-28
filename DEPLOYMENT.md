@@ -1,141 +1,99 @@
-# Deploying Your Portfolio to Render.com
+# Deployment Guide for Portfolio Website
 
-This document provides a detailed guide on how to deploy your portfolio website to Render.com. Render is a cloud platform that offers free hosting for static sites and web services with automatic SSL and continuous deployments from GitHub.
+This document outlines the complete deployment process for the portfolio website on Render.com.
 
-## Prerequisites
+## Key Deployment Files
 
-- A GitHub or GitLab account
-- Your portfolio code committed to a repository
-- A Render.com account (you can sign up for free at https://render.com)
+1. **render.yaml**: Defines the Render.com deployment configuration
+2. **build.js**: A Node.js script that handles the build process
+3. **enhanced-fallback.html**: A standalone HTML version of the portfolio for fallback
 
-## Before Deployment: Fix Missing Dependencies
+## New Direct Build Approach
 
-Based on the deployment errors, you need to ensure all required dependencies are installed in your GitHub repository. Add these to your project:
+The latest approach uses `build.js` instead of `render-build.sh`. This provides better control over the build process by:
+
+1. Directly utilizing Vite's JavaScript API to build the React application
+2. Ensuring proper directory structure for deployment
+3. Creating a reliable Express server to serve the application
+4. Providing fallback mechanisms if the build process encounters issues
+
+## Step-by-Step Deployment Guide
+
+### 1. Preparation
+
+Make sure the following files are in your repository:
+- `build.js` - The build script
+- `render.yaml` - Render.com configuration
+- `enhanced-fallback.html` - Fallback content
+
+### 2. Repository Setup
+
+Push your code to a GitHub/GitLab repository:
 
 ```bash
-# Install required development dependencies
-npm install --save-dev @vitejs/plugin-react
-```
-
-## Deployment Steps
-
-### 1. Prepare Your Repository
-
-Make sure your code is properly committed to a GitHub or GitLab repository:
-
-```bash
-# Initialize git repository if not already done
-git init
-
-# Add all files
 git add .
-
-# Commit changes
-git commit -m "Prepare for deployment"
-
-# Add remote repository (replace with your actual repository URL)
-git remote add origin https://github.com/yourusername/your-portfolio.git
-
-# Push to repository
-git push -u origin main
+git commit -m "Ready for deployment"
+git push
 ```
 
-### 2. Set Up Web Service on Render
+### 3. Render.com Setup
 
-1. Log in to your Render.com account
-2. From your Dashboard, click the "New" button and select "Web Service"
-3. Connect your GitHub or GitLab account if you haven't already
-4. Select the repository containing your portfolio
-5. Configure the service with the following settings:
+1. Create a new Web Service on Render.com linked to your repository
+2. Configure the service with the following settings:
+   - **Name**: Your choice (e.g., "portfolio")
+   - **Environment**: Node
+   - **Build Command**: `npm install && npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss esbuild postcss vite && node build.js`
+   - **Start Command**: `node dist/start.js`
+   - **Environment Variables**:
+     - `NODE_ENV`: `production`
+     - `PORT`: `10000`
 
-### 3. Basic Configuration
+### 4. Deployment Process
 
-- **Name**: Choose a name for your service (e.g., "my-portfolio")
-- **Environment**: Select "Node"
-- **Region**: Choose the region closest to your target audience
-- **Branch**: Select your main branch (usually "main" or "master")
+When you deploy, Render.com will:
+1. Clone your repository
+2. Install the necessary dependencies
+3. Run the build script which:
+   - Builds the React application using Vite
+   - Creates an Express server to serve the application
+   - Sets up fallback content in case of build failure
+4. Start the server using the generated start script
 
-### 4. Build Settings
+### 5. Troubleshooting
 
-- **Build Command**: `chmod +x render-build.sh && ./render-build.sh`
-- **Start Command**: `node dist/start.js`
-- **Plan**: Select "Free" to start
+#### Common Issues:
 
-Note: This uses a custom build script that simplifies the Vite configuration for Render.com compatibility.
+1. **Build failures**:
+   - Check the build logs for specific error messages
+   - Ensure all dependencies are properly installed
+   - Consider clearing the build cache and redeploying
 
-### 5. Advanced Options (Required)
+2. **Missing assets**:
+   - Verify that paths to assets use the correct aliases
+   - Ensure images and other assets are properly included in the repository
 
-- Click "Advanced" to expand additional options
-- Add the following environment variables:
-  - Key: `PORT`
-    Value: `10000`
-  - Key: `NODE_ENV`
-    Value: `production`
+3. **Server issues**:
+   - Check that the environment variables are correctly set
+   - Verify that the server is listening on the correct port
 
-### 6. Create and Deploy
+## Testing the Deployment
 
-- Click "Create Web Service"
-- Render will now build and deploy your application
-- This process may take a few minutes
+Once deployed, you can visit your portfolio at the URL provided by Render.com (typically `https://{service-name}.onrender.com`).
 
-### 7. Access Your Deployed Portfolio
+## Local Testing
 
-Once the deployment is complete:
+To test the build process locally:
 
-- Render will provide you with a URL like `https://your-portfolio.onrender.com`
-- You can access your portfolio through this URL
-- The site will automatically receive an SSL certificate
+```bash
+# Install required dependencies
+npm install
+npm install --save-dev @vitejs/plugin-react autoprefixer tailwindcss esbuild postcss vite
 
-## Troubleshooting Common Deployment Errors
+# Run the build script
+node build.js
 
-### Missing dependencies
+# Start the server locally
+node dist/start.js
+```
 
-If you encounter errors related to missing packages like `Cannot find module 'autoprefixer'` or `esbuild: not found`:
-
-1. The build script has been updated to automatically install needed dependencies
-2. If you still encounter issues, try manually adding these dependencies to your package.json:
-   ```
-   npm install --save-dev autoprefixer tailwindcss esbuild postcss @vitejs/plugin-react typescript @types/node
-   ```
-3. Commit and push these changes to your repository before deploying
-
-### Build process failures
-
-If the build fails with various errors:
-
-1. Check the build logs for specific error messages
-2. The updated build script includes fallback mechanisms to ensure a successful deployment even if parts of the build fail
-3. If you see a placeholder page after deployment, this means the automatic fallback was used
-
-### Server startup issues
-
-If the deployment completes but the site doesn't load:
-
-1. Check the logs on Render.com for any runtime errors
-2. Make sure the PORT environment variable is set correctly (should be 10000)
-3. The updated start script includes better error handling to help diagnose issues
-
-## Continuous Deployment
-
-Render automatically sets up continuous deployment from your repository:
-
-- Any changes pushed to your main branch will trigger a new build
-- The new version will be automatically deployed once the build completes
-- No manual deployments are needed after the initial setup
-
-## Custom Domains (Optional)
-
-To use your own domain with your Render service:
-
-1. Go to your service dashboard on Render
-2. Navigate to the "Settings" tab
-3. Scroll down to "Custom Domains"
-4. Click "Add Custom Domain"
-5. Follow the instructions to verify your domain ownership
-6. Update your domain's DNS settings as instructed by Render
-
-## Resources
-
-- [Render Docs: Node.js Services](https://render.com/docs/deploy-node-express-app)
-- [Render Docs: Custom Domains](https://render.com/docs/custom-domains)
-- [Render Status Page](https://status.render.com)
+This will simulate the same build process that happens on Render.com.

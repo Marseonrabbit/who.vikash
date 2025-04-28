@@ -1,10 +1,8 @@
 // Simplified Vite config for Render.com deployment
 const { defineConfig } = require("vite");
 const path = require("path");
-const react = require("@vitejs/plugin-react");
 
 module.exports = defineConfig({
-  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
@@ -18,9 +16,5 @@ module.exports = defineConfig({
     emptyOutDir: true,
     sourcemap: false,
     minify: true,
-    // This simplifies the build process
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    },
   },
 });

@@ -152,7 +152,7 @@ EOL
 
 # Build client using the simplified config
 echo "==> Building client with simplified Vite config..."
-NODE_ENV=production npx vite build --config vite.config.render.js --force || {
+NODE_ENV=production npx vite build --config vite.config.render.js || {
   echo "==> Vite build failed, attempting alternative build..."
   # Try a direct build with minimal settings - use .cjs extension for CommonJS in ESM context
   cat > simple.vite.config.cjs << 'EOL'
