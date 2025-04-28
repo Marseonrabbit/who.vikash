@@ -37,30 +37,30 @@ const ProjectsSection = () => {
                   <p className="text-lg mb-4">
                     I developed the entire backend from scratch and deployed it for public use. The tool is now live and actively used by analysts and peers in the community.
                   </p>
+                  
+                  <div className="space-y-2 mb-4">
+                    <p className="text-lg">Key Features:</p>
+                    <ul className="list-none space-y-2">
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        Bulk IP analysis
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        Multiple hash analysis support (MD5, SHA-1, SHA-256, etc.)
+                      </li>
+                      <li className="flex items-center">
+                        <span className="text-primary mr-2">🔹</span>
+                        OSINT integrations for enhanced investigation and threat intelligence
+                      </li>
+                    </ul>
+                  </div>
                 </>
               ) : (
                 <p className="text-lg mb-4">
                   A custom tool that enables bulk IP analysis and hash verification, streamlining security teams' workflow...
                 </p>
               )}
-              
-              <div className="space-y-2 mb-4">
-                <p className="text-lg">Key Features:</p>
-                <ul className="list-none space-y-2">
-                  <li className="flex items-center">
-                    <span className="text-primary mr-2">🔹</span>
-                    Bulk IP analysis
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-primary mr-2">🔹</span>
-                    Multiple hash analysis support (MD5, SHA-1, SHA-256, etc.)
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-primary mr-2">🔹</span>
-                    OSINT integrations for enhanced investigation and threat intelligence
-                  </li>
-                </ul>
-              </div>
 
               <div className="flex items-center gap-4">
                 <span className="text-primary">🛠️</span>
