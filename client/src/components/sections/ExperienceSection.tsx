@@ -3,24 +3,58 @@ import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import ExperienceIcon from "@/components/icons/ExperienceIcon";
 import { fadeInUp, staggerContainer, staggerItems } from "@/lib/animation";
+import { useState } from "react";
 
-const experiences = [
+interface Experience {
+  id: number;
+  title: string;
+  period: string;
+  description: string;
+  skills: string[];
+  details?: {
+    responsibilities?: string[];
+    achievements?: string[];
+  };
+}
+
+const experiences: Experience[] = [
   {
     id: 1,
+    title: "SEO & Digital Marketer – Digital Miles, Jaipur",
+    period: "February 2023 – March 2024",
+    description: "Acted as the primary point of contact for multiple clients, handling SEO and Google Ads campaigns while providing detailed performance analysis.",
+    skills: ["SEO", "Google Ads", "Client Management", "Digital Strategy"],
+    details: {
+      responsibilities: [
+        "Client Handling: Acted as the primary point of contact for multiple clients, understanding their goals and creating tailored digital marketing strategies.",
+        "SEO Management: Handled on-page and off-page SEO for various client websites, conducted keyword research, competitor analysis, and implemented content strategies to improve search engine rankings.",
+        "Google Ads Optimization: Managed and optimized Google Ads campaigns to maximize ROI. This included setting up campaigns, A/B testing ad creatives, refining target audiences, and monitoring performance metrics.",
+        "Reporting & Analysis: Created monthly performance reports using Google Analytics and Google Ads dashboards to provide actionable insights to clients.",
+        "Collaboration: Worked closely with design and content teams to align marketing efforts and ensure consistent brand messaging across digital platforms."
+      ],
+      achievements: [
+        "Increased organic traffic for key clients by up to 46% through strategic SEO improvements.",
+        "Reduced Google Ads CPC by 40% on average while improving conversion rates.",
+        "Successfully managed 10+ client accounts simultaneously with consistent positive feedback."
+      ]
+    }
+  },
+  {
+    id: 2,
     title: "Freelance Photographer",
     period: "2022 - Present",
     description: "Working with various clients on food photography, product shoots, and landscape photography for publications.",
     skills: ["Food Photography", "Landscape", "Editorial"]
   },
   {
-    id: 2,
+    id: 3,
     title: "Assistant Photographer",
     period: "2021 - 2022",
     description: "Worked with established photographers on various commercial projects, learning professional techniques and client management.",
     skills: ["Studio Work", "Commercial", "Lighting"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Photography Internship",
     period: "2020 - 2021",
     description: "Learned fundamental photography skills and post-processing techniques at a local studio.",
@@ -29,6 +63,16 @@ const experiences = [
 ];
 
 const ExperienceSection = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const toggleExpand = (id: number) => {
+    if (expandedId === id) {
+      setExpandedId(null);
+    } else {
+      setExpandedId(id);
+    }
+  };
+
   return (
     <motion.section
       className="min-h-screen container mx-auto py-10 md:py-16 flex flex-col justify-center"
@@ -70,8 +114,46 @@ const ExperienceSection = () => {
                     </Badge>
                   ))}
                 </div>
+                
+                {expandedId === experience.id && experience.details && (
+                  <div className="mt-4 mb-6 bg-card/50 p-4 rounded-md border border-primary/20">
+                    {experience.details.responsibilities && (
+                      <div className="mb-4">
+                        <h4 className="text-lg font-medium mb-2 text-primary">Responsibilities:</h4>
+                        <ul className="list-none space-y-2">
+                          {experience.details.responsibilities.map((responsibility, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <span className="text-primary mr-2 mt-1">▹</span>
+                              <span>{responsibility}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    
+                    {experience.details.achievements && (
+                      <div>
+                        <h4 className="text-lg font-medium mb-2 text-primary">Key Achievements:</h4>
+                        <ul className="list-none space-y-2">
+                          {experience.details.achievements.map((achievement, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <span className="text-primary mr-2 mt-1">✓</span>
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+                
                 <div className="flex justify-end">
-                  <a href="#" className="text-foreground hover:text-primary transition-colors">Read More →</a>
+                  <button 
+                    onClick={() => toggleExpand(experience.id)}
+                    className="text-foreground hover:text-primary transition-colors"
+                  >
+                    {expandedId === experience.id ? "Show Less ←" : "Read More →"}
+                  </button>
                 </div>
               </div>
             </motion.div>
