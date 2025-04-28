@@ -8,6 +8,15 @@ This document provides a detailed guide on how to deploy your portfolio website 
 - Your portfolio code committed to a repository
 - A Render.com account (you can sign up for free at https://render.com)
 
+## Before Deployment: Fix Missing Dependencies
+
+Based on the deployment errors, you need to ensure all required dependencies are installed in your GitHub repository. Add these to your project:
+
+```bash
+# Install required development dependencies
+npm install --save-dev @vitejs/plugin-react
+```
+
 ## Deployment Steps
 
 ### 1. Prepare Your Repository
@@ -48,19 +57,18 @@ git push -u origin main
 
 ### 4. Build Settings
 
-- **Build Command**: `npm install && npm run build`
-- **Start Command**: `npm start`
+- **Build Command**: `npm install && npx vite build && npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist`
+- **Start Command**: `node dist/index.js`
 - **Plan**: Select "Free" to start
 
-### 5. Advanced Options (Optional)
+### 5. Advanced Options (Required)
 
 - Click "Advanced" to expand additional options
-- Add the following environment variable:
+- Add the following environment variables:
   - Key: `PORT`
-  - Value: `10000`
-- Add another environment variable if needed:
+    Value: `10000`
   - Key: `NODE_ENV`
-  - Value: `production`
+    Value: `production`
 
 ### 6. Create and Deploy
 
@@ -75,6 +83,20 @@ Once the deployment is complete:
 - Render will provide you with a URL like `https://your-portfolio.onrender.com`
 - You can access your portfolio through this URL
 - The site will automatically receive an SSL certificate
+
+## Troubleshooting Common Deployment Errors
+
+If you encounter the error `Error: Cannot find module '/opt/render/project/src/dist/index.js'`:
+
+1. Make sure your build command is actually creating the dist/index.js file
+2. Try using the more explicit build command provided above rather than using scripts
+3. Check the build logs for any errors during the build process
+
+If you encounter the error `Cannot find package '@vitejs/plugin-react'`:
+
+1. Make sure to add this dependency to your project before deploying
+2. You can do this by running `npm install --save-dev @vitejs/plugin-react`
+3. Push the updated package.json and package-lock.json to your repository
 
 ## Continuous Deployment
 
@@ -94,16 +116,6 @@ To use your own domain with your Render service:
 4. Click "Add Custom Domain"
 5. Follow the instructions to verify your domain ownership
 6. Update your domain's DNS settings as instructed by Render
-
-## Troubleshooting
-
-If you encounter any issues with your deployment:
-
-- Check the build logs for errors
-- Verify that your build and start commands are correct
-- Ensure your code works properly in your local development environment
-- Make sure your repository is public or properly connected to Render
-- Check that you've set the correct environment variables
 
 ## Resources
 

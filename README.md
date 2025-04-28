@@ -23,8 +23,13 @@ Follow these steps to deploy your portfolio on Render.com:
 
 ### Step 1: Prepare Your Repository
 
-1. Create a new repository on GitHub or GitLab
-2. Push your code to the repository
+1. First, install the missing dependency:
+   ```bash
+   npm install --save-dev @vitejs/plugin-react
+   ```
+
+2. Create a new repository on GitHub or GitLab
+3. Push your code to the repository
    ```bash
    git init
    git add .
@@ -47,18 +52,23 @@ Use these settings in the Render dashboard:
 - **Environment**: `Node`
 - **Region**: Choose the closest to your audience
 - **Branch**: `main` (or your default branch)
-- **Build Command**: `npm install && npm run build`
-- **Start Command**: `npm start`
+- **Build Command**: `npm install && npx vite build && npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist`
+- **Start Command**: `node dist/index.js`
 - **Plan**: Free (can upgrade later)
 
-### Step 4: Advanced Options (Optional)
+### Step 4: Advanced Options (Required)
 
-Click "Advanced" and add the following environment variable:
-- **PORT**: `10000` (Render's default port)
+Click "Advanced" and add the following environment variables:
+- **PORT**: `10000`
+- **NODE_ENV**: `production`
 
 ### Step 5: Deploy
 
 Click "Create Web Service" and wait for the deployment to complete. Render will provide you with a URL like `https://your-portfolio.onrender.com` when it's ready.
+
+### Troubleshooting
+
+If you encounter any deployment errors, check the detailed troubleshooting guide in the DEPLOYMENT.md file.
 
 ## Local Development
 
