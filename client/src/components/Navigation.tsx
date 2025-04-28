@@ -4,7 +4,7 @@ import { useSectionStore } from "@/hooks/use-section";
 import { useRef, useEffect } from 'react';
 
 interface NavigationProps {
-  currentSection: 'about' | 'projects' | 'experience' | 'skills' | 'books';
+  currentSection: 'about' | 'projects' | 'experience' | 'skills' | 'books' | 'courses';
 }
 
 const Navigation = ({ currentSection }: NavigationProps) => {
@@ -16,6 +16,7 @@ const Navigation = ({ currentSection }: NavigationProps) => {
     { id: "projects" as const, label: "Projects" },
     { id: "experience" as const, label: "Experience" },
     { id: "skills" as const, label: "Skills" },
+    { id: "courses" as const, label: "Courses" },
     { id: "books" as const, label: "Books" },
   ];
 

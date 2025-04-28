@@ -7,6 +7,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import SkillsSection from "@/components/sections/SkillsSection";
+import CoursesSection from "@/components/sections/CoursesSection";
 import BooksSection from "@/components/sections/BooksSection";
 import { useSectionStore } from "@/hooks/use-section";
 
@@ -41,6 +42,7 @@ function App() {
               {activeSection === "projects" && <ProjectsSection key="projects" />}
               {activeSection === "experience" && <ExperienceSection key="experience" />}
               {activeSection === "skills" && <SkillsSection key="skills" />}
+              {activeSection === "courses" && <CoursesSection key="courses" />}
               {activeSection === "books" && <BooksSection key="books" />}
             </>
           )}

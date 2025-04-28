@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-type Section = 'about' | 'projects' | 'experience' | 'skills' | 'books';
+type Section = 'about' | 'projects' | 'experience' | 'skills' | 'courses' | 'books';
 
 interface SectionState {
   activeSection: Section;
