@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viaksh Portfolio</title>
+  <style>
+    body { 
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    header { margin-bottom: 2rem; }
+    h1 { color: #2a4365; }
+    h2 { color: #2c5282; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.5rem; margin-top: 2rem; }
+    .section { margin-bottom: 2rem; }
+    .skill { margin-bottom: 0.5rem; }
+    .skill-name { font-weight: bold; }
+    .skill-bar { 
+      height: 8px;
+      background: #edf2f7;
+      border-radius: 4px;
+      margin-top: 0.25rem;
+    }
+    .skill-level { 
+      height: 100%;
+      background: #4299e1;
+      border-radius: 4px;
+    }
+    .experience { margin-bottom: 1.5rem; }
+    .experience-title { font-weight: bold; margin-bottom: 0.25rem; }
+    .experience-period { color: #718096; font-size: 0.9rem; }
+    .experience-description { margin-top: 0.5rem; }
+    .project { margin-bottom: 1.5rem; }
+    .project-title { font-weight: bold; color: #2c5282; }
+    .project-description { margin-top: 0.5rem; }
+    .book { 
+      margin-bottom: 1.5rem; 
+      display: flex;
+      align-items: flex-start;
+    }
+    .book-info { flex: 1; }
+    .book-cover { 
+      width: 80px; 
+      height: 120px; 
+      background: #e2e8f0; 
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #718096;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .book-title { font-weight: bold; margin-bottom: 0.25rem; }
+    .book-author { color: #718096; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .course { margin-bottom: 1rem; }
+    .course-title { font-weight: bold; }
+    .course-description { margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Viaksh's Portfolio</h1>
+    <p>Cybersecurity Professional & Digital Marketing Specialist</p>
+  </header>
+
+  <div class="section">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">SIEM/EDR</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 100%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Incident Management</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Digital Marketing</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Web Pentesting</div>
+      <div class="skill-bar"><div class="skill-level" style="width: 35%"></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Experience</h2>
+    <div class="experience">
+      <div class="experience-title">Cybersecurity Professional</div>
+      <div class="experience-period">2020 - Present</div>
+      <div class="experience-description">
+        Working with cutting-edge security technology to protect organizations from cyber threats.
+      </div>
+    </div>
+    <div class="experience">
+      <div class="experience-title">Digital Marketing Specialist</div>
+      <div class="experience-period">2018 - 2020</div>
+      <div class="experience-description">
+        Managed online marketing campaigns and optimized web presence for various clients.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Projects</h2>
+    <div class="project">
+      <div class="project-title">Threat Detection System</div>
+      <div class="project-description">
+        Developed a custom threat detection system using machine learning algorithms to identify unusual patterns in network traffic.
+      </div>
+    </div>
+    <div class="project">
+      <div class="project-title">Security Awareness Training Portal</div>
+      <div class="project-description">
+        Created an interactive training portal to educate employees about cybersecurity best practices and common attack vectors.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Books</h2>
+    <p>A collection of technical books related to computing and networking that have influenced my professional development.</p>
+    
+    <div class="book">
+      <div class="book-cover">Book Cover</div>
+      <div class="book-info">
+        <div class="book-title">The Art of Computer Programming</div>
+        <div class="book-author">By Donald Knuth</div>
+        <div class="book-description">
+          A comprehensive monograph on computer programming and algorithms, considered one of the most influential works in computer science.
+        </div>
+      </div>
+    </div>
+    
+    <div class="book">
+      <div class="book-cover">Book Cover</div>
+      <div class="book-info">
+        <div class="book-title">Practical Malware Analysis</div>
+        <div class="book-author">By Michael Sikorski & Andrew Honig</div>
+        <div class="book-description">
+          A hands-on guide to dissecting malicious software to understand how it works, how to identify it, and how to defeat it.
+        </div>
+      </div>
+    </div>
+    
+    <p><i>Note: This bookshelf will be updated when time permits.</i></p>
+  </div>
+
+  <div class="section">
+    <h2>Courses</h2>
+    <div class="course">
+      <div class="course-title">Advanced Network Security</div>
+      <div class="course-description">
+        Comprehensive training on securing enterprise networks against advanced persistent threats.
+      </div>
+    </div>
+    <div class="course">
+      <div class="course-title">Digital Marketing Analytics</div>
+      <div class="course-description">
+        Data-driven approach to measuring and optimizing digital marketing campaigns.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>This is a static fallback version of the portfolio. The full interactive version is being deployed.</p>
+  </footer>
+</body>
+</html>

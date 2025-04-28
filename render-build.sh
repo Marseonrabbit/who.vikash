@@ -208,6 +208,10 @@ app.listen(PORT, () => {
 EOL
 }
 
+# Copy the enhanced fallback HTML
+echo "==> Copying enhanced fallback HTML..."
+cp enhanced-fallback.html dist/ || echo "No enhanced fallback HTML found"
+
 # Create a simple start script
 echo "==> Creating server start script..."
 cat > dist/start.js << 'EOL'
@@ -237,7 +241,7 @@ if [ ! -d "dist/public" ] || [ ! -f "dist/public/index.html" ]; then
     
     # Create a minimal index.html if not found
     if [ ! -f "dist/public/index.html" ]; then
-      echo "==> Creating index.html manually..."
+      echo "==> Creating enhanced index.html manually..."
       cat > dist/public/index.html << 'EOL'
 <!DOCTYPE html>
 <html lang="en">
@@ -381,9 +385,24 @@ if (!fs.existsSync(publicDir)) {
   fs.mkdirSync(publicDir, { recursive: true });
 }
 
+// Read the enhanced fallback HTML
+const enhancedFallbackPath = join(__dirname, '..', 'enhanced-fallback.html');
+let enhancedFallback = '';
+
+try {
+  if (fs.existsSync(enhancedFallbackPath)) {
+    console.log('Using enhanced fallback HTML');
+    enhancedFallback = fs.readFileSync(enhancedFallbackPath, 'utf8');
+  }
+} catch (err) {
+  console.log(`Error reading enhanced fallback: ${err.message}`);
+}
+
 if (!fs.existsSync(indexPath)) {
   console.log('Creating index.html file');
-  const indexHtml = `<!DOCTYPE html>
+  
+  // Use enhanced fallback if available, otherwise use simple fallback
+  const indexHtml = enhancedFallback || `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -419,6 +438,32 @@ if (!fs.existsSync(indexPath)) {
     .experience-title { font-weight: bold; margin-bottom: 0.25rem; }
     .experience-period { color: #718096; font-size: 0.9rem; }
     .experience-description { margin-top: 0.5rem; }
+    .project { margin-bottom: 1.5rem; }
+    .project-title { font-weight: bold; color: #2c5282; }
+    .project-description { margin-top: 0.5rem; }
+    .book { 
+      margin-bottom: 1.5rem; 
+      display: flex;
+      align-items: flex-start;
+    }
+    .book-info { flex: 1; }
+    .book-cover { 
+      width: 80px; 
+      height: 120px; 
+      background: #e2e8f0; 
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #718096;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    .book-title { font-weight: bold; margin-bottom: 0.25rem; }
+    .book-author { color: #718096; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .course { margin-bottom: 1rem; }
+    .course-title { font-weight: bold; }
+    .course-description { margin-top: 0.25rem; }
   </style>
 </head>
 <body>
@@ -467,9 +512,43 @@ if (!fs.existsSync(indexPath)) {
 
   <div class="section">
     <h2>Projects</h2>
-    <p>A collection of technical and creative projects will be displayed here once deployment is complete.</p>
+    <div class="project">
+      <div class="project-title">Threat Detection System</div>
+      <div class="project-description">
+        Developed a custom threat detection system to identify unusual patterns in network traffic.
+      </div>
+    </div>
+    <div class="project">
+      <div class="project-title">Security Awareness Training Portal</div>
+      <div class="project-description">
+        Created an interactive training portal to educate employees about cybersecurity best practices.
+      </div>
+    </div>
   </div>
 
+  <div class="section">
+    <h2>Books</h2>
+    <p>A collection of technical books related to computing and networking.</p>
+    
+    <div class="book">
+      <div class="book-cover">Book Cover</div>
+      <div class="book-info">
+        <div class="book-title">The Art of Computer Programming</div>
+        <div class="book-author">By Donald Knuth</div>
+      </div>
+    </div>
+    
+    <div class="book">
+      <div class="book-cover">Book Cover</div>
+      <div class="book-info">
+        <div class="book-title">Practical Malware Analysis</div>
+        <div class="book-author">By Michael Sikorski & Andrew Honig</div>
+      </div>
+    </div>
+    
+    <p><i>Note: This bookshelf will be updated when time permits.</i></p>
+  </div>
+  
   <footer>
     <p>This is a static fallback version of the portfolio. The full interactive version is being deployed.</p>
   </footer>
