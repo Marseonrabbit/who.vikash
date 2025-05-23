@@ -1,6 +1,6 @@
 # Personal Portfolio Website
 
-A sophisticated personal portfolio website showcasing professional experience with an elegant, Samsung-inspired design and interactive user interface.
+A sophisticated personal portfolio website showcasing professional experience with an elegant and interactive user interface.
 
 ## Tech Stack
 
